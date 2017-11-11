@@ -11,7 +11,7 @@ void Bonus::mort(Perso* p) {
 }
 
 Bonus::~Bonus() {
-    free(monPerso);
+    delete monPerso;
 }
 
 bool Bonus::getUtilise() const {
