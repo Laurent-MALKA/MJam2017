@@ -52,19 +52,19 @@ $(EXEC): $(BLD_OBJ)
 
 #Animation.o: Animation.cpp Animation.hpp
 Body.o: Body.cpp Body.hpp
-Bonus.o: Bonus.cpp Bonus.hpp
+Bonus.o: Bonus.cpp Bonus.hpp Body.hpp Perso.hpp
 Cola.o: Cola.cpp Cola.hpp Bonus.hpp
-Display.o: Display.cpp Display.hpp
-Grappin.o: Grappin.cpp Grappin.hpp Body.hpp
-Inputs.o: Inputs.cpp Inputs.hpp
-Jeu.o: Jeu.cpp Jeu.hpp
+Display.o: Display.cpp Display.hpp Image.hpp Perso.hpp Map.hpp
+Grappin.o: Grappin.cpp Grappin.hpp Body.hpp Perso.hpp
+Inputs.o: Inputs.cpp Inputs.hpp Perso.hpp
+Jeu.o: Jeu.cpp Jeu.hpp Inputs.hpp Display.hpp Moteur.hpp Map.hpp
 main.o: main.cpp *.hpp
-Map.o: Map.cpp Map.hpp
-Moteur.o: Moteur.cpp Moteur.hpp
-Obstacle.o: Obstacle.cpp Obstacle.hpp
-Perso.o: Perso.cpp Perso.hpp
+Map.o: Map.cpp Map.hpp Perso.hpp Obstacle.hpp
+Moteur.o: Moteur.cpp Moteur.hpp Inputs.hpp
+Obstacle.o: Obstacle.cpp Obstacle.hpp Body.hpp
+Perso.o: Perso.cpp Perso.hpp Touches.hpp Bonus.hpp Body.hpp Animation.hpp
+Teleporteur.o: Teleporteur.cpp Teleporteur.hpp Perso.hpp
 Touches.o: Touches.cpp Touches.hpp
-Teleporteur.o: Teleporteur.cpp Teleporteur.hpp
 
 ###  REGLES D'INFERENCES  ######################################################
 
