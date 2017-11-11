@@ -2,10 +2,13 @@
 #define MJAM2017_PERSO_HPP
 
 
+#include <SDL2/SDL_system.h>
+#include <vector>
 #include "Touches.hpp"
 #include "Bonus.hpp"
 #include "Body.hpp"
 #include "Grappin.hpp"
+#include "Animation.hpp"
 
 class Perso {
 
@@ -28,6 +31,11 @@ public:
     void saut();
 
 private:
+    /*
+    SDL_Texture *texture;
+    Animation *animation;
+    std::vector<Animation*> animations;
+     */
     float v_h_max;
     float v_h_act;
     float v_h_accG;

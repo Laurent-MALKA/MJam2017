@@ -9,6 +9,9 @@
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 700
 
+#define MAP_WIDTH  2000
+#define MAP_HEIGHT 2000
+
 class Display {
 public:
    Display(int sdlFlags, int imgFlags, char * winName);
@@ -20,9 +23,15 @@ public:
 
    void display();
 
+    void scrolling(int x, int y);
+
+
+
 private:
    SDL_Window   * win;
    SDL_Renderer * rdr;
+
+    SDL_Rect rect;
 
    bool isInit;
 
