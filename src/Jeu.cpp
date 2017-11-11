@@ -24,10 +24,10 @@ void Jeu::gameloop() {
             p1->bouger();
             p2->bouger();
 
-            if (p1->getV_v_act() != 0) {
+            if (p1->isEnLAir()) {
                 p1->saut();
             }
-            if (p2->getV_v_act() != 0) {
+            if (p2->isEnLAir()) {
                 p2->saut();
             }
 

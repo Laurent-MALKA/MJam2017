@@ -78,6 +78,7 @@ void Inputs::analyseInputs(Perso* p){
     }
     if(isStillPressed(p->getTouches().getT_saut()) && !p->isEnLAir()){
         p->setV_v_act(10);
+        p->saut();
         p->setEnLAir(true);
     }
     if(isJustPressed(p->getTouches().getT_grappin()) && p->getGrappin().getEtat()){
