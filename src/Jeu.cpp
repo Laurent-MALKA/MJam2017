@@ -1,7 +1,7 @@
 #include <fstream>
 #include "Jeu.hpp"
 
-Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,"Hello World!") {
+Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Hello World!") {
 
     init();
 

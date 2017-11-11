@@ -68,4 +68,4 @@ double Body::distance(Body other) {
    return sqrt(d2);
 }
 
-Body::Body() {}
+Body::Body() = default;

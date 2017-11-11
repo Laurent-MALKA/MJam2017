@@ -88,22 +88,22 @@ public:
     void lancerBonus();
 
 private:
-    SDL_Texture *spriteSheet;
-    Animation *animation;
-    std::vector<Animation*> *animations;
-    float v_h_max;
-    float v_h_act;
-    float acc_h;
-    float v_v_act;
-    bool enLAir;
-    bool goesLeft;
-    bool colleMur;
-    unsigned nbBiere;
-    Bonus *bonus;
+    SDL_Texture *spriteSheet{};
+    Animation *animation{};
+    std::vector<Animation*> *animations{};
+    float v_h_max{};
+    float v_h_act{};
+    float acc_h{};
+    float v_v_act{};
+    bool enLAir{};
+    bool goesLeft{};
+    bool colleMur{};
+    unsigned nbBiere{};
+    Bonus *bonus{};
     Touches touches;
 //    Body body;
     Grappin grappin;
-    int checkpointAct;
+    int checkpointAct{};
 public:
     int getCheckpointAct() const;
 

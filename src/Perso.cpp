@@ -47,7 +47,7 @@ void Perso::bouger(){
     if(getGrappin().getEtat()!=GRAP_S_RETRACTE){
         getGrappin().bouger();
     }
-    if(bonus!=NULL && bonus->getUtilise()){
+    if(bonus!= nullptr && bonus->getUtilise()){
         bonus->bouger();
     }
 }
@@ -115,7 +115,7 @@ void Perso::setAnimation(int i) {
 }
 
 bool Perso::hasBonus() {
-    return bonus != NULL;
+    return bonus != nullptr;
 }
 
 void Perso::setBonus(Bonus *bonus) {
@@ -141,7 +141,7 @@ void Perso::display(SDL_Renderer *rdr,SDL_Rect rect) {
     SDL_Rect dstrect = {getX() - rect.x+WINDOW_WIDTH/2,getY() - rect.y+WINDOW_HEIGHT/2,getW(),getH()};
     SDL_Rect srcrect = animation->getRect();
     SDL_RendererFlip flip = (!goesLeft) ? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE;
-    SDL_RenderCopyEx(rdr,spriteSheet,&srcrect,&dstrect,0,NULL,flip);
+    SDL_RenderCopyEx(rdr,spriteSheet,&srcrect,&dstrect,0, nullptr,flip);
 }
 
 Bonus* Perso::getBonus() const {

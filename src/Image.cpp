@@ -2,8 +2,8 @@
 #include "Perso.hpp"
 
 Image::Image():
-   rdr(NULL),
-   img(NULL) {
+   rdr(nullptr),
+   img(nullptr) {
 }
 
 Image::Image(SDL_Renderer * rdr, char * str, int x, int y):
@@ -19,9 +19,7 @@ Image::Image(SDL_Renderer * rdr, char * str, int x, int y):
    SDL_FreeSurface(s);
 }
 
-Image::~Image() {
-   // SDL_DestroyTexture(this->img);
-}
+Image::~Image() = default;
 
 void Image::setPosition(int x, int y) {
    this->setX(x);

@@ -5,7 +5,7 @@
 
 class Teleporteur: public Bonus {
 public:
-    Teleporteur(Perso * p);
+    explicit Teleporteur(Perso * p);
 
     void effet() override;
     void mort(Perso* perso) override;

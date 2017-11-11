@@ -9,7 +9,7 @@ class Perso;
 
 class Bonus : public Body {
 public:
-    Bonus(Perso* monPerso);
+    explicit Bonus(Perso* monPerso);
     ~Bonus();
     virtual void effet() = 0;
     virtual void bouger()=0;

@@ -12,7 +12,7 @@ Grappin::Grappin(Perso * p, bool spc):
 }
 
 Grappin::Grappin():
-Grappin(NULL, false) {}
+Grappin(nullptr, false) {}
 
 void Grappin::lancer() {
    this->setX(this->p->getX());
@@ -48,6 +48,7 @@ void Grappin::bouger() {
          break;
       case GRAP_S_ACCROCHE:
          this->etat=GRAP_S_RETOUR;
+      default:break;
    }
 }
 

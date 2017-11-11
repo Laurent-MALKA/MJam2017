@@ -30,7 +30,7 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             this->isInit = true;
 
             /* creation des images */
-            this->background = Image(this->rdr, "assets/map.png", 0, 0);
+            this->background = Image(this->rdr, const_cast<char *>("assets/map.png"), 0, 0);
             this->background.setDimension(WINDOW_WIDTH*3, WINDOW_HEIGHT*3);
          }
       }
@@ -58,7 +58,7 @@ Display::~Display() {
 
 
 bool Display::initSDL(int sdlFlags, int imgFlags) {
-   if (SDL_Init(sdlFlags) == 1) {
+   if (SDL_Init(static_cast<Uint32>(sdlFlags)) == 1) {
       fprintf(stderr, "SDL2: Failed to initialize SDL : %s\n", SDL_GetError());
       return false;
    }
@@ -81,7 +81,7 @@ bool Display::initSDL(int sdlFlags, int imgFlags) {
 
 
 bool Display::isInitialized() {
-   this->isInit &= this->win != NULL && this->rdr != NULL;
+   this->isInit &= this->win != nullptr && this->rdr != nullptr;
 
    return this->isInit;
 }

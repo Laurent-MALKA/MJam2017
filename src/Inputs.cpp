@@ -1,7 +1,7 @@
 #include "Inputs.hpp"
 
 Inputs::Inputs() {
-    keyboard = (Uint8 *) SDL_GetKeyboardState(NULL);
+    keyboard = (Uint8 *) SDL_GetKeyboardState(nullptr);
     currentState = (bool *) malloc(SDL_NUM_SCANCODES * sizeof(bool));
     previousState = (bool *) malloc(SDL_NUM_SCANCODES * sizeof(bool));
 

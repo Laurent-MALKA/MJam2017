@@ -7,7 +7,7 @@
 class Cola : public Bonus{
 
 public:
-    Cola(Perso *monPerso);
+    explicit Cola(Perso *monPerso);
     void effet() override;
     void mort(Perso* perso) override;
     void bouger() override;
