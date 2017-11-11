@@ -10,6 +10,8 @@ public:
    void setW(int newW);
    void setH(int newH);
 
+   void setPosition(int x, int y);
+
    void inc(int dx, int dy);
    void dec(int dx, int dy);
 

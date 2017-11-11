@@ -21,6 +21,10 @@ void Body::setH(int newH) {
    this->xywh[3] = newH;
 }
 
+void setPosition(int x, int y) {
+   this->setX(x);
+   this->setY(y);
+}
 
 void Body::inc(int dx, int dy) {
    this->setX(this->getX() + dx);
