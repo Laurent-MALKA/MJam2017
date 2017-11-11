@@ -16,6 +16,7 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[11][3]) {
     int y;
     for (int i = 0; i < 2; i++) {
         p[i]->setColleMur(false);
+        p[i]->setEnLAir(true);
 
         for (auto &obstacle: obstacles) {
             y= -1;
@@ -30,13 +31,13 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[11][3]) {
                 if (obstacle.getY() < p[i]->getY()) {
                     if (obstacle.getX() < p[i]->getX()) {
                         if (obstacle.getX()+obstacle.getW() - p[i]->getX() > obstacle.getY()+obstacle.getH() - p[i]->getY()) {
-                            p[i]->setY(obstacle.getY() + obstacle.getH()-3);
+                            p[i]->setY(obstacle.getY() + obstacle.getH()+5);
                         } else {
                             p[i]->setX(obstacle.getX() + obstacle.getW());
                         }
                     } else {
                         if (p[i]->getX()+p[i]->getW()-obstacle.getX()  > obstacle.getY()+obstacle.getH() - p[i]->getY()) {
-                            p[i]->setY(obstacle.getY() + obstacle.getH()-3);
+                            p[i]->setY(obstacle.getY() + obstacle.getH()+5);
                         } else {
                             p[i]->setX(obstacle.getX() - p[i]->getW());
                         }

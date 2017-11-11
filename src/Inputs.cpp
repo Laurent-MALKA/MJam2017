@@ -92,7 +92,8 @@ void Inputs::analyseInputs(Perso* p){
         if(p->isGoingLeft()){
             x=1;
         }
-        p->setAcc_h(x*3);
+        p->setAcc_h(x*2);
+        p->setV_v_act(p->getV_v_act()+5);
     }
 }
 

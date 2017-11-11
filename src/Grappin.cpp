@@ -56,7 +56,7 @@ void Grappin::stop() {
    if (this->etat == GRAP_S_LANCE) {
       this->etat = GRAP_S_ACCROCHE;
       this->len = 0;
-      p->setV_v_act(15);
+      p->setV_v_act(p->getV_v_act()+15);
       p->setV_h_act(20);
    }
 }
