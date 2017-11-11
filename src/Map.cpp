@@ -57,7 +57,7 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[11][3]) {
                             p[i]->setY(obstacle.getY()-p[i]->getH());
                         }
                         else{
-                            p[i]->setX(obstacle.getX()-obstacle.getW());
+                            p[i]->setX(obstacle.getX()-p[i]->getW());
                         }
                     }
                 }
