@@ -10,7 +10,7 @@
 #include "Grappin.hpp"
 #include "Animation.hpp"
 
-class Perso {
+class Perso: public Body {
 
 public:
     Perso(SDL_Texture *tileset,std::vector<Animation*> *animations,Body body, Touches touches);
