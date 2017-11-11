@@ -18,7 +18,7 @@ BLD_REP=../build/
 SRC_REP=../src/
 EXE_REP=./
 
-CFLAGS=-Wall -Wextra -std=c++11
+CFLAGS=-Wall -Wextra -std=c++11 -Wreorder
       #-MMD -O2
       #-ansi -pedantic
       #-Wchar-subscripts -Wdouble-promotion
@@ -26,10 +26,10 @@ CFLAGS=-Wall -Wextra -std=c++11
 LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_ttf
 INCLUDES=
 
-OBJ=Body.o Bonus.o Cola.o Display.o Grappin.o GrappinSpe.o Inputs.o\
+OBJ=Animation.o Body.o Bonus.o Cola.o Display.o Grappin.o GrappinSpe.o Inputs.o\
     Jeu.o main.o Map.o Moteur.o Obstacle.o Perso.o Touches.o
 EXE=mJam
-#Animation.o
+
 
 ###  ADAPTATION  ###############################################################
 
