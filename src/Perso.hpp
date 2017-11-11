@@ -10,6 +10,8 @@
 #include "Grappin.hpp"
 #include "Animation.hpp"
 
+class Grappin;
+
 class Perso: public Body {
 
 public:
