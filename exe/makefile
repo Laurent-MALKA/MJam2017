@@ -27,7 +27,7 @@ LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_ttf
 INCLUDES=
 
 OBJ=Animation.o Body.o Bonus.o Cola.o Display.o Grappin.o GrappinSpe.o Inputs.o\
-    Jeu.o main.o Map.o Moteur.o Obstacle.o Perso.o Touches.o
+    Jeu.o main.o Map.o Moteur.o Obstacle.o Perso.o Touches.o Image.o
 EXE=mJam
 
 

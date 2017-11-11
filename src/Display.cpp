@@ -25,6 +25,9 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             fprintf(stderr, "erreur creation du renderer\n");
          } else {
             this->isInit = true;
+
+            /* creation des images */
+            this->background(this->rdr, "background", 0, 0);
          }
       }
    }
@@ -77,6 +80,7 @@ bool Display::isInitialized() {
 
 
 void Display::display() {
+   this->background.display();
    SDL_RenderPresent(this->rdr);
 }
 
