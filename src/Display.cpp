@@ -79,3 +79,18 @@ bool Display::isInitialized() {
 void Display::display() {
    SDL_RenderPresent(this->rdr);
 }
+
+void Display::scrolling(int x, int y) {
+   if(x < WINDOW_WIDTH/2)
+      rect.x = WINDOW_WIDTH/2;
+   else if(x > MAP_WIDTH-WINDOW_WIDTH/2)
+      rect.x = MAP_WIDTH-WINDOW_WIDTH/2;
+   else
+      rect.x = x;
+   if(y < WINDOW_HEIGHT/2)
+      rect.y = WINDOW_HEIGHT/2;
+   else if(y > MAP_HEIGHT-WINDOW_HEIGHT/2)
+      rect.y = MAP_HEIGHT-WINDOW_HEIGHT/2;
+   else
+      rect.y = y;
+}

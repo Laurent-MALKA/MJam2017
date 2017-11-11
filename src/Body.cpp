@@ -1,3 +1,4 @@
+#include <cmath>
 #include "Body.hpp"
 
 Body::Body(int x, int y, int w, int h):
@@ -55,4 +56,10 @@ bool Body::collides(Body other) {
    || other.getX() + other.getW() < this->getX()
    || other.getY() + other.getH() < this->getY()
    );
+}
+
+double Body::distance(Body other) {
+   double d2 = (getX() - other.getX()) * (getX() - other.getX()) +
+            (getY() - other.getY()) * (getY() - other.getY());
+   return sqrt(d2);
 }
