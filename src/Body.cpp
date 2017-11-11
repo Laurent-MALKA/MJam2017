@@ -21,6 +21,16 @@ void Body::setH(int newH) {
 }
 
 
+void Body::inc(int dx, int dy) {
+   this->setX(this->getX() + dx);
+   this->setY(this->getY() + dy);
+}
+
+void Body::dec(int dx, int dy) {
+   this->inc(-dx, -dy);
+}
+
+
 int Body::getX() {
    return this->xywh[0];
 }

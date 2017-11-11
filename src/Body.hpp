@@ -10,12 +10,17 @@ public:
    void setW(int newW);
    void setH(int newH);
 
+   void inc(int dx, int dy);
+   void dec(int dx, int dy);
+
    int getX();
    int getY();
    int getW();
    int getH();
 
    bool collides(Body other);
+
+   int distance(Body other);
 
 private:
    int xywh[4];
