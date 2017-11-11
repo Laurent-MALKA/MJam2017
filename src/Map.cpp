@@ -67,7 +67,7 @@ void Map::initObstacles() {
     if(file.is_open()) {
         int x, y, w, h;
 
-        while (file.tellg() < file.end) {
+        while (!file.eof()) {
             file >> x;
             file >> y;
             file >> w;

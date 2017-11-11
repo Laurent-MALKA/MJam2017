@@ -34,7 +34,7 @@ void Jeu::gameloop() {
             std::vector<Perso*> pP;
             pP.push_back(p1);
             pP.push_back(p2);
-            map.testCollisions(pP);
+            map.testCollisions(pP,checkpoints);
 
             display.display(p1,p2);
             SDL_Delay(16);
@@ -45,13 +45,13 @@ void Jeu::gameloop() {
 }
 
 void Jeu::init(){
-    SDL_Surface *surface = IMG_Load("assets/spritesheet-demo.png");
+    SDL_Surface *surface = IMG_Load("assets/spritesheet.png");
     SDL_Texture *spriteSheet = SDL_CreateTextureFromSurface(display.getRenderer(),surface);
     SDL_FreeSurface(surface);
     std::vector<Animation*> animation;
-    animation.push_back(new Animation(0,3,45,43,1,0.1));
+    animation.push_back(new Animation(0,0,512/4,512/4,4,0.1));
 
-    p1= new Perso(spriteSheet,&animation,Body(0,300,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
+    p1= new Perso(spriteSheet,&animation,Body(100,300,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
     p2= new Perso(spriteSheet,&animation,Body(0,0,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
 }
 
