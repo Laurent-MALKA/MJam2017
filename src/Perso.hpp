@@ -33,6 +33,8 @@ public:
 
    void stop();
 
+    int getEtat() const;
+
 private:
    int     etat;
    int     vit;
@@ -48,6 +50,8 @@ public:
     Perso(): Body(0,0,0,0), touches(SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES){}
     Perso(SDL_Texture *spriteSheet,std::vector<Animation*> *animations,Body body, Touches touches);
 
+    void bouger();
+
     const Touches &getTouches() const;
 
     void setAcc_h(float acc_h);
@@ -61,11 +65,11 @@ public:
     bool isEnLAir() const;
     bool isColleMur() const;
     bool isGoingLeft() const;
+    Grappin getGrappin() const;
     bool hasBonus();
     float getV_v_act();
 
     void update();
-    void deplacement();
     void saut();
     void lancerGrappin();
     void lancerBonus();

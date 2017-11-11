@@ -12,7 +12,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
 }
 
 //Test collision et changement position dans Moteur
-void Perso::deplacement(){
+void Perso::bouger(){
     float vitesse=acc_h+v_h_act;
 
     /*Décélération*/
@@ -45,6 +45,10 @@ void Perso::deplacement(){
 void Perso::saut(){
     body.setY(int(body.getY()-v_v_act));
     v_v_act-=1;
+}
+
+Grappin Perso::getGrappin() const{
+    return grappin;
 }
 
 const Touches &Perso::getTouches() const {
