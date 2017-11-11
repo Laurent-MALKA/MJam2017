@@ -1,15 +1,11 @@
 #include "Jeu.hpp"
 
 Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,"Hello World!") {
-    SDL_Surface *surface = IMG_Load("assets/spritesheet-demo.png");
-    SDL_Texture *spriteSheet = SDL_CreateTextureFromSurface(display.getRenderer(),surface);
-    SDL_FreeSurface(surface);
-    std::vector<Animation*> animation;
-    animation.push_back(new Animation(0,0,40,43,6,0.2));
 
-    p1 = Perso(spriteSheet,&animation,Body(100,100,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
-    p1 = Perso(spriteSheet,&animation,Body(120,120,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
+    init();
 
+    //bodies.pushBack(Perso(spriteSheet,&animation,Body(100,100,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E)));
+    //bodies.pushBack(Perso(spriteSheet,&animation,Body(120,120,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P)));
 }
 
 void Jeu::gameloop() {
@@ -21,15 +17,12 @@ void Jeu::gameloop() {
             inputs.update();
 
             inputs.analyseInputs(p1);
-            inputs.analyseInputs(p1);
+            inputs.analyseInputs(p2);
 
-            p1.deplacement();
-            p2.deplacement();
-
-            if (p1.getV_v_act() != 0)
-                p1.saut();
-            if (p2.getV_v_act() != 0)
-                p2.saut();
+            if (p1->getV_v_act() != 0)
+                p1->saut();
+            if (p2->getV_v_act() != 0)
+                p2->saut();
 
             map.testCollisions(p1);
             map.testCollisions(p2);
@@ -37,5 +30,17 @@ void Jeu::gameloop() {
             display.display();
             SDL_Delay(16);
         }
+        init();
     }
+}
+
+void Jeu::init(){
+    SDL_Surface *surface = IMG_Load("assets/spritesheet-demo.png");
+    SDL_Texture *spriteSheet = SDL_CreateTextureFromSurface(display.getRenderer(),surface);
+    SDL_FreeSurface(surface);
+    std::vector<Animation*> animation;
+    animation.push_back(new Animation(0,0,40,43,6,0.2));
+
+    *p1=Perso(spriteSheet,&animation,Body(100,100,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
+    *p2=Perso(spriteSheet,&animation,Body(120,120,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
 }

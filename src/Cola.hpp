@@ -4,6 +4,7 @@
 
 class Cola {
 
+    void effet();
 };
 
 

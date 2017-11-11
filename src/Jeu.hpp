@@ -13,13 +13,14 @@ public:
     void gameloop();
 
 private:
+    void init();
     Inputs inputs;
     Moteur moteur;
     Display display;
     Map map;
-    Perso p1;
-    Perso p2;
-
+    Perso* p1;
+    Perso* p2;
+    //std::vector<Body> bodies;
 };
 
 

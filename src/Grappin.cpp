@@ -57,9 +57,12 @@ void Grappin::stop() {
    }
 }
 
-
 void Grappin::relacher() {
    if (this->etat == GRAP_S_ACCROCHE) {
       this->etat = GRAP_S_RETOUR;
    }
+}
+
+int Grappin::getEtat() const {
+    return etat;
 }
