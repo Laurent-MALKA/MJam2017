@@ -26,7 +26,9 @@ CFLAGS=-Wall -Wextra
 LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_ttf
 INCLUDES=
 
-OBJ=main.o Inputs.o Display.o
+OBJ=Bonus.o Cola.o Display.o Grappin.o GrappinSpe.o Inputs.o Jeu.o \
+    main.o Map.o Moteur.o Obstacle.o Perso.o Pos.o Touches.o
+# Animation.o
 EXE=mJam
 
 
@@ -49,9 +51,21 @@ $(EXEC): $(BLD_OBJ)
 
 ###  DEPENDANCES  ##############################################################
 
-main.o: main.cpp
-Inputs.o: Inputs.cpp Inputs.hpp
+#Animation.o: Animation.cpp Animation.hpp
+Bonus.o: Bonus.cpp Bonus.hpp
+Cola.o: Cola.cpp Cola.hpp Bonus.hpp
 Display.o: Display.cpp Display.hpp
+Grappin.o: Grappin.cpp Grappin.hpp
+GrappinSpe.o: GrappinSpe.cpp GrappinSpe.hpp
+Inputs.o: Inputs.cpp Inputs.hpp
+Jeu.o: Jeu.cpp Jeu.hpp
+main.o: main.cpp *.hpp
+Map.o: Map.cpp Map.hpp
+Moteur.o: Moteur.cpp Moteur.hpp
+Obstacle.o: Obstacle.cpp Obstacle.hpp
+Perso.o: Perso.cpp Perso.hpp
+Pos.o: Pos.cpp Pos.hpp
+Touches.o: Touches.cpp Touches.hpp
 
 
 ###  REGLES D'INFERENCES  ######################################################
