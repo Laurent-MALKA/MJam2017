@@ -2,6 +2,11 @@
 #define MJAM2017_JEU_HPP
 
 
+#include "Inputs.hpp"
+#include "Moteur.hpp"
+#include "Display.hpp"
+#include "Map.hpp"
+
 class Jeu {
 public:
     Jeu();
