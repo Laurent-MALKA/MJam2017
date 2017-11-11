@@ -35,11 +35,13 @@ public:
 
     void analyseInputs(Perso* p1);
 
+    bool exit();
+
 private:
     Uint8 *keyboard;
     bool *currentState;
     bool *previousState;
-
+    SDL_Event event;
 };
 
 

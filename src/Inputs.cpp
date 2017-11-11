@@ -95,3 +95,12 @@ void Inputs::analyseInputs(Perso* p1){
         p1->setAcc_h(x*3);
     }
 }
+
+bool Inputs::exit() {
+    bool out = false;
+    while(SDL_PollEvent(&event)){
+        if(event.type == SDL_QUIT)
+            out = true;
+    }
+    return out;
+}

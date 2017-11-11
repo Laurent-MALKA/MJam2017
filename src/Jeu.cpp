@@ -9,9 +9,9 @@ Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,"Hello World!
 }
 
 void Jeu::gameloop() {
-    bool fin;
+    bool fin = false;
 
-    while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE)) {
+    while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
         fin = false;
         while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
             inputs.update();
@@ -31,6 +31,7 @@ void Jeu::gameloop() {
 
             display.display();
             SDL_Delay(16);
+            fin = inputs.exit();
         }
         init();
     }
