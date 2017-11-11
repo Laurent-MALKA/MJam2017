@@ -9,9 +9,9 @@ void Cola::effet() {
     setW(50);
     setH(50);
     directionX=(int)monPerso->getAcc_h();
-    directionX=(directionX>=0)? 5 : -5;
+    directionX=(directionX>=0)? 15 : -15;
     directionY=(int)monPerso->getV_v_act();
-    directionY=(directionY>0)? 5 : -5;
+    directionY=(directionY>0)? 15 : -15;
 }
 
 void Cola::bouger() {
