@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 
 
-set(SOURCE_FILES src/main.cpp src/Inputs.cpp src/Inputs.hpp src/Display.cpp src/Display.hpp src/Jeu.cpp src/Jeu.hpp src/Moteur.cpp src/Moteur.hpp src/Perso.cpp src/Perso.hpp src/Body.cpp src/Body.hpp src/Grappin.cpp src/Grappin.hpp src/Touches.cpp src/Touches.hpp src/Bonus.cpp src/Bonus.hpp src/Cola.cpp src/Cola.hpp src/GrappinSpe.cpp src/GrappinSpe.hpp src/Map.cpp src/Map.hpp src/Obstacle.cpp src/Obstacle.hpp src/Animation.cpp src/Animation.hpp src/Image.cpp src/Image.hpp)
+set(SOURCE_FILES src/main.cpp src/Inputs.cpp src/Inputs.hpp src/Display.cpp src/Display.hpp src/Jeu.cpp src/Jeu.hpp src/Moteur.cpp src/Moteur.hpp src/Perso.cpp src/Perso.hpp src/Body.cpp src/Body.hpp src/Grappin.cpp src/Grappin.hpp src/Touches.cpp src/Touches.hpp src/Bonus.cpp src/Bonus.hpp src/Cola.cpp src/Cola.hpp src/Teleporteur.cpp src/Teleporteur.hpp src/Map.cpp src/Map.hpp src/Obstacle.cpp src/Obstacle.hpp src/Animation.cpp src/Animation.hpp src/Image.cpp src/Image.hpp)
 
 set(CMAKE_CXX_FLAGS "-lSDL2 -lSDL2_ttf -lSDL2_image")
 
