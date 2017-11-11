@@ -24,6 +24,8 @@ void Jeu::gameloop() {
             if (p2.getV_v_act != 0)
                 p2.saut();
 
+            map.testCollisions();
+
             display.affichage();
             SDL_Delay(16);
         }
