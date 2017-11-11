@@ -11,7 +11,7 @@ public:
     ~Map();
     void initObstacles();
 
-    void testCollisions(std::vector<Perso*> p);
+    void testCollisions(std::vector<Perso*> p, int checkpoints[11][3]);
 private:
     bool estEnColision(Body p, Obstacle obstacle);
     std::vector<Obstacle> obstacles;

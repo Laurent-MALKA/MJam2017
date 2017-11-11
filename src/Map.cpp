@@ -12,7 +12,7 @@ Map::~Map() {
 
 }
 
-void Map::testCollisions(std::vector<Perso*> p) {
+void Map::testCollisions(std::vector<Perso*> p, int checkpoints[11][3]) {
     int y = -1;
     for (int i = 0; i < 2; i++) {
         p[i]->setColleMur(false);
@@ -52,6 +52,9 @@ void Map::testCollisions(std::vector<Perso*> p) {
 
         if (p[i]->getBonus() != NULL && p[i]->getBonus()->getUtilise() == 1 && estEnColision2(*p[(i+1)%2], *p[i]->getBonus())) {
             p[i]->getBonus()->mort(p[(i+1)%2]);
+        }
+        if(p[i]->getX()-checkpoints[p[i]->getCheckpointAct()][0]<20 && (p[i]->getY()>=checkpoints[p[i]->getCheckpointAct()][2] && p[i]->getY()<=checkpoints[p[i]->getCheckpointAct()][1] || checkpoints[p[i]->getCheckpointAct()][2]>=p[i]->getY() && checkpoints[p[i]->getCheckpointAct()][2]<=p[i]->getY()+p[i]->getH())){
+            p[i]->setCheckpointAct(p[i]->getCheckpointAct()+1);
         }
 
     }
