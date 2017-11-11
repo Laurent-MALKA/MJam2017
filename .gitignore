@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-cmake-build-debug/
-CMakeLists.txt
+cmake-build-debug/*
+!cmake-build-debug/Find*
 build
 exe/*~
