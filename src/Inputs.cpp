@@ -67,13 +67,16 @@ bool Inputs::isKeyboardReleased() {
 }
 
 void analyseInputs(Perso p1){
-    if(isStillPressed(p1.getTouches().getT_droite())){
-        p1.setV_h_accD(2);
+    if(isStillPressed(p1.getTouches().getT_droite()) && isStillPressed(p1.getTouches(à.getT_gauche()))){
+        p1.setAcc(0);
     }
-    if(isStillPressed(p1.getTouches().getT_gauche())){
-        p1.setV_h_accG(2);
+    else if(isStillPressed(p1.getTouches().getT_droite())){
+        p1.setAcc_h(2);
     }
-    if(isStillPressed(p1.getTouches().getT_saut()) && !p1.isEnLAir){
+    else if(isStillPressed(p1.getTouches().getT_gauche())){
+        p1.setAcc_h(-2);
+    }
+    if(isStillPressed(p1.getTouches().getT_saut()) && !p1.getEnLAir()){
         p1.setV_v_act=10;
         p1.setEnLAir(true);
     }
@@ -81,8 +84,15 @@ void analyseInputs(Perso p1){
         p1.getGrappin().lancer();
         p1.getGrappin().setActif(true);
     }
-    if(isStillPressed(p1.getTouches().getT_bonus()) && p1.getBonus!=NULL){
+    if(isStillPressed(p1.getTouches().getT_bonus()) && p1.getBonus()!=NULL){
         p1.getBonus.effet();
         p1.setBonus(NULL);
+    }
+    if(isStillPressed(p1.getTouches().getT_saut()) && p1.getColleMur()){
+        int x=-1;
+        if(p1.isGoingLeft()){
+            x=1;
+        }
+        p1.setAcc_h(x*3);
     }
 }

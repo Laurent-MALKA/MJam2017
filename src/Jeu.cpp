@@ -9,6 +9,7 @@ void Jeu::gameloop() {
 
     while (keyboard.isStillReleased(SDL_SCANCODE_ESCAPE)) {
         fin = false;
+        p1.getBody().setX();
         while (keyboard.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
             keyboard.update();
 
