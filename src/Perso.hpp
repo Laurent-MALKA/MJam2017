@@ -20,6 +20,8 @@ public:
 
     void setV_v_act(float v_v_act);
 
+    void setEnLAir(bool enLAir);
+
     bool isEnLAir() const;
 
     void deplacement();

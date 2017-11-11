@@ -59,3 +59,7 @@ void Perso::setV_v_act(float v_v_act) {
 bool Perso::isEnLAir() const {
     return enLAir;
 }
+
+void Perso::setEnLAir(bool enLAir) {
+    Perso::enLAir = enLAir;
+}
