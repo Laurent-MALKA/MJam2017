@@ -13,35 +13,35 @@
 class Perso {
 
 public:
-    Perso(Body body, Touches touches);
+    Perso(SDL_Texture *tileset,std::vector<Animation*> *animations,Body body, Touches touches);
 
     const Touches &getTouches() const;
 
     void setAcc_h(float acc_h);
 
     void setV_v_act(float v_v_act);
-
     void setEnLAir(bool enLAir);
+    void setColleMur(bool colleMur);
 
     bool isEnLAir() const;
-
+    bool isColleMur() const;
     bool isGoingLeft() const;
 
     void deplacement();
     void saut();
+    void lancerGrappin();
 
 private:
-    /*
-    SDL_Texture *texture;
+    SDL_Texture *tileset;
     Animation *animation;
-    std::vector<Animation*> animations;
-     */
+    std::vector<Animation*> *animations;
     float v_h_max;
     float v_h_act;
     float acc_h;
     float v_v_act;
     bool enLAir;
     bool goesLeft;
+    bool colleMur;
     unsigned nbBiere;
     Bonus *bonus;
     Touches touches;

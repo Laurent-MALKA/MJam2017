@@ -5,6 +5,7 @@
 #include <SDL2/SDL_scancode.h>
 #include <SDL2/SDL_system.h>
 #include <SDL2/SDL_events.h>
+#include "Perso.hpp"
 
 class Inputs {
 public:

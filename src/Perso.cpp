@@ -1,7 +1,14 @@
 #include "Perso.hpp"
 
-Perso::Perso(Body body, Touches touches): v_h_max(10.0), v_h_act(0), acc_h(0), v_v_act(0), enLAir(false), goesLeft(true), nbBiere(0), bonus(), touches(touches), grappin(), body(body){
-
+Perso::Perso(SDL_Texture * tileset,std::vector<Animation*> *animations, Body body, Touches touches): v_h_max(10.0),
+                                                                                                     v_h_act(0),
+                                                                                                     acc_h(0),
+                                                                                                     v_v_act(0),
+                                                                 enLAir(false), goesLeft(true), colleMur(false),
+                                                                 nbBiere(0), bonus(), touches(touches), grappin(),
+                                                                 body(body) {
+    this->tileset = tileset;
+    this->animations = animations;
 }
 
 //Test collision et changement position dans Moteur
@@ -66,4 +73,16 @@ void Perso::setEnLAir(bool enLAir) {
 
 bool Perso::isGoingLeft() const {
     return goesLeft;
+}
+
+bool Perso::isColleMur() const {
+    return colleMur;
+}
+
+void Perso::setColleMur(bool colleMur) {
+    Perso::colleMur = colleMur;
+}
+
+void Perso::lancerGrappin() {
+    grappin.lancer();
 }
