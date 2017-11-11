@@ -20,6 +20,13 @@
 
 #define GRAP_MAX_LENGTH 9
 
+#define WINDOW_WIDTH 1000
+#define WINDOW_HEIGHT 700
+
+#define MAP_WIDTH     3369
+#define MAP_HEIGHT    2448
+
+
 class Perso;
 class Bonus;
 
@@ -75,7 +82,7 @@ public:
     bool hasBonus();
 
     void update();
-    void display(SDL_Renderer *rdr);
+    void display(SDL_Renderer *rdr, SDL_Rect rect);
     void saut();
     void lancerGrappin();
     void lancerBonus();

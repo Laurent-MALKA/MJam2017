@@ -135,8 +135,8 @@ float Perso::getV_v_act() const {
     return v_v_act;
 }
 
-void Perso::display(SDL_Renderer *rdr) {
-    SDL_Rect dstrect = {getX(),getY(),getW(),getH()};
+void Perso::display(SDL_Renderer *rdr,SDL_Rect rect) {
+    SDL_Rect dstrect = {getX() - rect.x+WINDOW_WIDTH/2,getY() - rect.y+WINDOW_HEIGHT/2,getW(),getH()};
     SDL_Rect srcrect = animation->getRect();
     SDL_RendererFlip flip = (goesLeft) ? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE;
     SDL_RenderCopyEx(rdr,spriteSheet,&srcrect,&dstrect,0,NULL,flip);

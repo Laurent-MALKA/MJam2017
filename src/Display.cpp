@@ -91,8 +91,8 @@ void Display::display(Perso *p1, Perso *p2) {
     SDL_SetRenderDrawColor(rdr,0,0,0,0);
     SDL_RenderClear(rdr);
    this->background.display(&rect);
-   p1->display(rdr);
-   p2->display(rdr);
+   p1->display(rdr,rect);
+   p2->display(rdr,rect);
 
 
    SDL_RenderPresent(this->rdr);

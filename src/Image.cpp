@@ -1,4 +1,5 @@
 #include "Image.hpp"
+#include "Perso.hpp"
 
 Image::Image():
    rdr(NULL),
@@ -41,6 +42,6 @@ void Image::setDimension(int w, int h) {
 }
 
 void Image::display(SDL_Rect *rect) {
-//    printf("%d:%d:%d:%d\n", this->rct.x, this->rct.y, this->rct.w, this->rct.h);
-   SDL_RenderCopy(this->rdr, this->img, rect, &(this->rct));
+   SDL_Rect rect2 = {rect->x-WINDOW_WIDTH/2,rect->y - WINDOW_WIDTH/2,rect->w,rect->h};
+   SDL_RenderCopy(this->rdr, this->img, &rect2, &(this->rct));
 }

@@ -51,11 +51,11 @@ void Jeu::init(){
     std::vector<Animation*> animation;
     animation.push_back(new Animation(0,3,45,43,1,0.1));
 
-    p1= new Perso(spriteSheet,&animation,Body(100,100,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
-    p2= new Perso(spriteSheet,&animation,Body(120,120,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
+    p1= new Perso(spriteSheet,&animation,Body(0,300,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
+    p2= new Perso(spriteSheet,&animation,Body(0,0,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
 }
 
 Jeu::~Jeu() {
     delete p1;
-    delete p2;
+    //delete p2;
 }
