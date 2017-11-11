@@ -5,7 +5,9 @@ class Body {
 public:
    Body(int x, int y, int w, int h);
 
-   void setX(int newX);
+    Body();
+
+    void setX(int newX);
    void setY(int newY);
    void setW(int newW);
    void setH(int newH);

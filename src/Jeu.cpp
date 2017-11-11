@@ -1,32 +1,40 @@
 #include "Jeu.hpp"
 
-Jeu::Jeu():inputs(), moteur(), display(){
+Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,"Hello World!") {
+    SDL_Surface *surface = IMG_Load("assets/spritesheet-demo.png");
+    SDL_Texture *spriteSheet = SDL_CreateTextureFromSurface(display.getRenderer(),surface);
+    SDL_FreeSurface(surface);
+    std::vector<Animation*> animation;
+    animation.push_back(new Animation(0,0,40,43,6,0.2));
+
+    p1 = Perso(spriteSheet,&animation,Body(100,100,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
+    p1 = Perso(spriteSheet,&animation,Body(120,120,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
 
 }
 
 void Jeu::gameloop() {
     bool fin;
 
-    while (keyboard.isStillReleased(SDL_SCANCODE_ESCAPE)) {
+    while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE)) {
         fin = false;
-        p1.getBody().setX();
-        while (keyboard.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
-            keyboard.update();
+        while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
+            inputs.update();
 
             inputs.analyseInputs(p1);
             inputs.analyseInputs(p1);
 
-            p1.deplacements();
-            p2.deplacements();
+            p1.deplacement();
+            p2.deplacement();
 
-            if (p1.getV_v_act != 0)
+            if (p1.getV_v_act() != 0)
                 p1.saut();
-            if (p2.getV_v_act != 0)
+            if (p2.getV_v_act() != 0)
                 p2.saut();
 
-            map.testCollisions();
+            map.testCollisions(p1);
+            map.testCollisions(p2);
 
-            display.affichage();
+            display.display();
             SDL_Delay(16);
         }
     }

@@ -83,8 +83,8 @@ void Inputs::analyseInputs(Perso p1){
     if(isJustPressed(p1.getTouches().getT_grappin())){
         p1.lancerGrappin();
     }
-    if(isStillPressed(p1.getTouches().getT_bonus()) && p1.getBonus()!=NULL){
-        p1.getBonus.effet();
+    if(isStillPressed(p1.getTouches().getT_bonus()) && p1.hasBonus()){
+        p1.lancerBonus();
         p1.setBonus(NULL);
     }
     if(isStillPressed(p1.getTouches().getT_saut()) && p1.isColleMur()){

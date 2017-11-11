@@ -17,6 +17,8 @@ public:
    Display(int sdlFlags, int imgFlags, char * winName);
    ~Display();
 
+    SDL_Renderer *getRenderer();
+
    bool initSDL(int sdlFlags, int imgFlags);
 
    bool isInitialized();

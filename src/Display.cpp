@@ -94,3 +94,7 @@ void Display::scrolling(int x, int y) {
    else
       rect.y = y;
 }
+
+SDL_Renderer *Display::getRenderer() {
+   return rdr;
+}
