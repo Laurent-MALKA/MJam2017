@@ -50,7 +50,7 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[11][3]) {
             }
         }
 
-        if (p[i]->getBonus() != NULL && p[i]->getBonus()->getUtilise() == 1 && estEnColision2(*p[(i+1)%2], *p[i]->getBonus())) {
+        if (p[i]->getBonus() != NULL && p[i]->getBonus()->getUtilise() == 1 && estEnColision(*p[(i+1)%2], *p[i]->getBonus())) {
             p[i]->getBonus()->mort(p[(i+1)%2]);
         }
         if(p[i]->getX()-checkpoints[p[i]->getCheckpointAct()][0]<20 && (p[i]->getY()>=checkpoints[p[i]->getCheckpointAct()][2] && p[i]->getY()<=checkpoints[p[i]->getCheckpointAct()][1] || checkpoints[p[i]->getCheckpointAct()][2]>=p[i]->getY() && checkpoints[p[i]->getCheckpointAct()][2]<=p[i]->getY()+p[i]->getH())){
@@ -77,17 +77,10 @@ void Map::initObstacles() {
     }
 }
 
-bool Map::estEnColision(Body p, Obstacle obstacle){
+bool Map::estEnColision(Body p, Body obstacle){
     return	(obstacle.getX()>=p.getX() && obstacle.getX()<=p.getX()+p.getW() || p.getX()>=obstacle.getX() && p.getX()<=obstacle.getX()+obstacle.getW())
            &&
            (obstacle.getY()>=p.getY() && obstacle.getY()<=p.getY()+p.getH() || p.getY()>=obstacle.getY() && p.getY()<=obstacle.getY()+obstacle.getH())
             ;
 
-}
-
-bool Map::estEnColision2(Perso p, Body b){
-    return	(b.getX()>=p.getX() && b.getX()<=p.getX()+p.getW() || p.getX()>=b.getX() && p.getX()<=b.getX()+b.getW())
-              &&
-              (b.getY()>=p.getY() && b.getY()<=p.getY()+p.getH() || p.getY()>=b.getY() && p.getY()<=b.getY()+b.getH())
-            ;
 }

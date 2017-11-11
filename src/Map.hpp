@@ -13,10 +13,8 @@ public:
 
     void testCollisions(std::vector<Perso*> p, int checkpoints[11][3]);
 private:
-    bool estEnColision(Body p, Obstacle obstacle);
+    bool estEnColision(Body p, Body obstacle);
     std::vector<Obstacle> obstacles;
-
-    bool estEnColision2(Perso p, Body b);
 };
 
 
