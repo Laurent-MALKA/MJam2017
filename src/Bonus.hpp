@@ -2,9 +2,21 @@
 #define MJAM2017_BONUS_HPP
 
 
-class Bonus {
+#include "Body.hpp"
+#include "Perso.hpp"
+
+class Bonus : public Body {
 public:
+    Bonus(Perso* monPerso);
+    ~Bonus();
     virtual void effet() = 0;
+    virtual void bouger()=0;
+    virtual void mort(Perso* p);
+    bool getUtilise() const;
+
+protected:
+    Perso* monPerso;
+    bool utilise;
 };
 
 

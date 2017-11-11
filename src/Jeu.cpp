@@ -21,6 +21,9 @@ void Jeu::gameloop() {
             inputs.analyseInputs(p1);
             inputs.analyseInputs(p2);
 
+            p1->bouger();
+            p2->bouger();
+
             if (p1->getV_v_act() != 0) {
                 p1->saut();
             }
@@ -28,8 +31,10 @@ void Jeu::gameloop() {
                 p2->saut();
             }
 
-            map.testCollisions(p1);
-            map.testCollisions(p2);
+            std::vector<Perso*> pP;
+            pP.push_back(p1);
+            pP.push_back(p2);
+            map.testCollisions(pP);
 
             display.display(p1,p2);
             SDL_Delay(16);

@@ -46,6 +46,8 @@ void Grappin::bouger() {
          this->setY(this->p->getY());
          this->etat = GRAP_S_RETRACTE;
          break;
+      case GRAP_S_ACCROCHE:
+         this->etat=GRAP_S_RETOUR;
    }
 }
 
@@ -54,12 +56,15 @@ void Grappin::stop() {
    if (this->etat == GRAP_S_LANCE) {
       this->etat = GRAP_S_ACCROCHE;
       this->len = 0;
+      p->setV_v_act(15);
+      p->setV_h_act(20);
    }
 }
 
 void Grappin::relacher() {
    if (this->etat == GRAP_S_ACCROCHE) {
       this->etat = GRAP_S_RETOUR;
+
    }
 }
 

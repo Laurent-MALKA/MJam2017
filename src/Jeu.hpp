@@ -9,6 +9,7 @@
 class Jeu {
 public:
     Jeu();
+    ~Jeu();
     void gameloop();
 
 private:

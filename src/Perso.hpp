@@ -49,6 +49,7 @@ class Perso: public Body {
 public:
     Perso(): Body(0,0,0,0), touches(SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES){}
     Perso(SDL_Texture *spriteSheet,std::vector<Animation*> *animations,Body body, Touches touches);
+    ~Perso();
 
     void bouger();
 
@@ -61,13 +62,16 @@ public:
     void setColleMur(bool colleMur);
     void setAnimation(int i);
     void setBonus(Bonus *bonus);
+    void setV_h_act(float v_h);
 
+    Bonus* getBonus() const;
+    float getV_v_act() const;
+    float getAcc_h() const;
     bool isEnLAir() const;
     bool isColleMur() const;
     bool isGoingLeft() const;
     Grappin getGrappin() const;
     bool hasBonus();
-    float getV_v_act();
 
     void update();
     void display(SDL_Renderer *rdr);

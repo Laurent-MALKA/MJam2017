@@ -85,7 +85,6 @@ void Inputs::analyseInputs(Perso* p1){
     }
     if(isStillPressed(p1->getTouches().getT_bonus()) && p1->hasBonus()){
         p1->lancerBonus();
-        p1->setBonus(NULL);
     }
     if(isStillPressed(p1->getTouches().getT_saut()) && p1->isColleMur()){
         int x=-1;

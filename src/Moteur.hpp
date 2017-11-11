@@ -5,11 +5,7 @@
 
 class Moteur {
 public:
-    Moteur();
-    void deplacements();
 
-private:
-    Inputs inputs;
 };
 
 

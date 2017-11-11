@@ -11,9 +11,9 @@ public:
     ~Map();
     void initObstacles();
 
-    void testCollisions(Perso *p);
+    void testCollisions(std::vector<Perso*> p);
 private:
-
+    bool estEnColision(Body p, Obstacle obstacle);
     std::vector<Obstacle> obstacles;
 
 };

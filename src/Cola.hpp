@@ -2,9 +2,20 @@
 #define MJAM2017_COLA_HPP
 
 
-class Cola {
+#include "Bonus.hpp"
 
-    void effet();
+class Cola : public Bonus{
+
+public:
+    Cola(Perso *monPerso);
+    void effet() override;
+    void mort(Perso* perso) override;
+    void bouger() override;
+
+private:
+    int vitesse;
+    int directionX;
+    int directionY;
 };
 
 

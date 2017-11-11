@@ -15,7 +15,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
 
 //Test collision et changement position dans Moteur
 void Perso::bouger(){
-    float vitesse=acc_h+v_h_act;
+    float vitesse=acc_h+v_h_act+nbBiere/2;
 
     /*Décélération*/
     if(vitesse<0){
@@ -42,6 +42,13 @@ void Perso::bouger(){
     v_h_act=vitesse;
 
     body.setX(int(body.getX()+v_h_act));
+
+    if(getGrappin().getEtat()!=GRAP_S_RETRACTE){
+        getGrappin().bouger();
+    }
+    if(bonus!=NULL && bonus->getUtilise()==1){
+        bonus->bouger();
+    }
 }
 
 void Perso::saut(){
@@ -89,6 +96,10 @@ void Perso::setColleMur(bool colleMur) {
     Perso::colleMur = colleMur;
 }
 
+float Perso::getAcc_h() const{
+    return acc_h;
+}
+
 void Perso::lancerGrappin() {
     grappin.lancer();
 }
@@ -114,7 +125,13 @@ void Perso::lancerBonus() {
     bonus->effet();
 }
 
-float Perso::getV_v_act() {
+Perso::~Perso() {
+    free(animation);
+    free(bonus);
+    free(spriteSheet);
+}
+
+float Perso::getV_v_act() const {
     return v_v_act;
 }
 
@@ -123,4 +140,12 @@ void Perso::display(SDL_Renderer *rdr) {
     SDL_Rect srcrect = animation->getRect();
     SDL_RendererFlip flip = (goesLeft) ? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE;
     SDL_RenderCopyEx(rdr,spriteSheet,&srcrect,&dstrect,0,NULL,flip);
+}
+
+Bonus* Perso::getBonus() const {
+    return bonus;
+}
+
+void Perso::setV_h_act(float v_h) {
+    v_h_act=v_h;
 }
