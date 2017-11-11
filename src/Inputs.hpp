@@ -32,6 +32,8 @@ public:
 
     bool isKeyboardReleased();
 
+    void analyseInputs(Perso p1);
+
 private:
     Uint8 *keyboard;
     bool *currentState;

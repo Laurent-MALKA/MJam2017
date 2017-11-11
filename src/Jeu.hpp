@@ -3,6 +3,17 @@
 
 
 class Jeu {
+public:
+    Jeu();
+    void gameloop();
+
+private:
+    Inputs inputs;
+    Moteur moteur;
+    Display display;
+    Map map;
+    Perso p1;
+    Perso p2;
 
 };
 
