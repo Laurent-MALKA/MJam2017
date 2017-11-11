@@ -18,23 +18,47 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[11][3]) {
         p[i]->setColleMur(false);
 
         for (auto &obstacle: obstacles) {
+            y= -1;
             if(estEnColision(*p[i], obstacle)) {
                 if (p[i]->getY() < obstacle.getY() && p[i]->getY() + p[i]->getW() < obstacle.getY() + obstacle.getW()) {
                     p[i]->setColleMur(true);
                 }
-                if(p[i]->isEnLAir() && (obstacle.getY()>=p[i]->getY() && obstacle.getY()<=p[i]->getY()+p[i]->getH() || p[i]->getY()>=obstacle.getY() && p[i]->getY()<=obstacle.getY()+obstacle.getH())) {
+                if(p[i]->isEnLAir() && (obstacle.getY()>=p[i]->getY() && obstacle.getY()<=p[i]->getY()+p[i]->getH() || p[i]->getY()>=obstacle.getY() && p[i]->getY()<=obstacle.getY()+obstacle.getH())){
                     p[i]->setEnLAir(false);
-                }
-                if (obstacle.getX() < p[i]->getX()) {
-                    p[i]->setX(obstacle.getX() + obstacle.getW());
-                } else {
-                    p[i]->setX(obstacle.getX()-p[i]->getW());
                 }
 
                 if (obstacle.getY() < p[i]->getY()) {
-                    p[i]->setY(obstacle.getY() + obstacle.getH());
-                } else {
-                    p[i]->setY(obstacle.getY()-p[i]->getH());
+                    if (obstacle.getX() < p[i]->getX()) {
+                        if (obstacle.getX()+obstacle.getW() - p[i]->getX() > obstacle.getY()+obstacle.getH() - p[i]->getY()) {
+                            p[i]->setY(obstacle.getY() + obstacle.getH()-3);
+                        } else {
+                            p[i]->setX(obstacle.getX() + obstacle.getW());
+                        }
+                    } else {
+                        if (p[i]->getX()+p[i]->getW()-obstacle.getX()  > obstacle.getY()+obstacle.getH() - p[i]->getY()) {
+                            p[i]->setY(obstacle.getY() + obstacle.getH()-3);
+                        } else {
+                            p[i]->setX(obstacle.getX() - p[i]->getW());
+                        }
+                    }
+                }
+                else {
+                    if (obstacle.getX() < p[i]->getX()) {
+                        if(obstacle.getX()+obstacle.getW()-p[i]->getX()>p[i]->getY()+p[i]->getH()-obstacle.getY()){
+                            p[i]->setY(obstacle.getY()-p[i]->getH());
+                        }
+                        else{
+                            p[i]->setX(obstacle.getX()+obstacle.getW());
+                        }
+                    }
+                    else{
+                        if(p[i]->getX()+p[i]->getW()-obstacle.getX()>p[i]->getY()+p[i]->getH()-obstacle.getY()){
+                            p[i]->setY(obstacle.getY()-p[i]->getH());
+                        }
+                        else{
+                            p[i]->setX(obstacle.getX()-obstacle.getW());
+                        }
+                    }
                 }
 
                 if (p[i]->getGrappin().getEtat() == GRAP_S_LANCE && estEnColision(p[i]->getGrappin(), obstacle)) {
