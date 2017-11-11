@@ -26,8 +26,8 @@ CFLAGS=-Wall -Wextra -std=c++11 -Wreorder
 LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_ttf
 INCLUDES=
 
-OBJ=Animation.o Body.o Bonus.o Cola.o Display.o Grappin.o GrappinSpe.o Inputs.o\
-    Jeu.o main.o Map.o Moteur.o Obstacle.o Perso.o Touches.o Image.o
+OBJ=Animation.o Body.o Bonus.o Cola.o Display.o Grappin.o Inputs.o Jeu.o main.o\
+    Map.o Moteur.o Obstacle.o Perso.o Touches.o Image.o Teleporteur.o
 EXE=mJam
 
 
@@ -56,7 +56,6 @@ Bonus.o: Bonus.cpp Bonus.hpp
 Cola.o: Cola.cpp Cola.hpp Bonus.hpp
 Display.o: Display.cpp Display.hpp
 Grappin.o: Grappin.cpp Grappin.hpp Body.hpp
-GrappinSpe.o: GrappinSpe.cpp GrappinSpe.hpp
 Inputs.o: Inputs.cpp Inputs.hpp
 Jeu.o: Jeu.cpp Jeu.hpp
 main.o: main.cpp *.hpp
@@ -65,7 +64,7 @@ Moteur.o: Moteur.cpp Moteur.hpp
 Obstacle.o: Obstacle.cpp Obstacle.hpp
 Perso.o: Perso.cpp Perso.hpp
 Touches.o: Touches.cpp Touches.hpp
-
+Teleporteur.o: Teleporteur.cpp Teleporteur.hpp
 
 ###  REGLES D'INFERENCES  ######################################################
 
