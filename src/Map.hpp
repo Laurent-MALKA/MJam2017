@@ -9,10 +9,10 @@ class Map {
 public:
     Map();
     ~Map();
-    void testCollisions(Perso p);
-
-private:
     void initObstacles();
+
+    void testCollisions(Perso *p);
+private:
 
     std::vector<Obstacle> obstacles;
 

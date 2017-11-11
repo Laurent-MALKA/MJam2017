@@ -4,6 +4,7 @@
 #include "Body.hpp"
 
 class Obstacle: public Body {
+public:
    Obstacle(int x, int y, int w, int h);
 };
 
