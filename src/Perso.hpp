@@ -11,8 +11,20 @@ class Perso {
 
 public:
     Perso(Body body, Touches touches);
+
+    const Touches &getTouches() const;
+
+    void setV_h_accG(float v_h_accG);
+
+    void setV_h_accD(float v_h_accD);
+
+    void setV_v_act(float v_v_act);
+
+    bool isEnLAir() const;
+
     void deplacement();
     void saut();
+
 private:
     float v_h_max;
     float v_h_act;

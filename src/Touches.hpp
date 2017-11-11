@@ -6,12 +6,8 @@
 
 class Touches {
 public:
-    Touches(SDL_Scancode t_haut, SDL_Scancode t_bas, SDL_Scancode t_gauche, SDL_Scancode t_droite, SDL_Scancode t_saut,
+    Touches(SDL_Scancode t_gauche, SDL_Scancode t_droite, SDL_Scancode t_saut,
             SDL_Scancode t_grappin, SDL_Scancode t_bonus);
-
-    SDL_Scancode getT_haut() const;
-
-    SDL_Scancode getT_bas() const;
 
     SDL_Scancode getT_gauche() const;
 
@@ -24,8 +20,6 @@ public:
     SDL_Scancode getT_bonus() const;
 
 private:
-    SDL_Scancode t_haut;
-    SDL_Scancode t_bas;
     SDL_Scancode t_gauche;
     SDL_Scancode t_droite;
     SDL_Scancode t_saut;
