@@ -26,20 +26,22 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[11][3]) {
                 if(p[i]->isEnLAir() && (obstacle.getY()>=p[i]->getY() && obstacle.getY()<=p[i]->getY()+p[i]->getH() || p[i]->getY()>=obstacle.getY() && p[i]->getY()<=obstacle.getY()+obstacle.getH())){
                     p[i]->setEnLAir(false);
                 }
+                /*
                 if (obstacle.getY() < p[i]->getY()) {
                     y = obstacle.getY() + obstacle.getH();
                 } else {
                     y = obstacle.getY()-p[i]->getH();
                 }
-
+                */
                 if (obstacle.getX() < p[i]->getX()) {
                     p[i]->setX(obstacle.getX() + obstacle.getW());
                 } else {
                     p[i]->setX(obstacle.getX()-p[i]->getW());
                 }
+                /*
                 if (y != -1) {
                     p[i]->setY(y);
-                }
+                }*/
 
                 if (p[i]->getGrappin().getEtat() == GRAP_S_LANCE && estEnColision(p[i]->getGrappin(), obstacle)) {
                     p[i]->getGrappin().stop();
