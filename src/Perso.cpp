@@ -5,7 +5,7 @@ Perso::Perso(SDL_Texture * tileset,std::vector<Animation*> *animations, Body bod
                                                                                                      acc_h(0),
                                                                                                      v_v_act(0),
                                                                  enLAir(false), goesLeft(true), colleMur(false),
-                                                                 nbBiere(0), bonus(), touches(touches), grappin(),
+                                                                 nbBiere(0), bonus(), touches(touches), grappin(this,false),
                                                                  body(body) {
     this->tileset = tileset;
     this->animations = animations;
@@ -85,4 +85,13 @@ void Perso::setColleMur(bool colleMur) {
 
 void Perso::lancerGrappin() {
     grappin.lancer();
+}
+
+void Perso::update() {
+    animation->update();
+}
+
+void Perso::setAnimation(int i) {
+    animation = (*animations)[i];
+    animation->reset();
 }

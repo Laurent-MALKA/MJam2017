@@ -10,6 +10,10 @@ Animation::Animation(int x, int y, int w, int h, int count, float speed) {
     }
 }
 
+void Animation::reset() {
+    frame = 0;
+}
+
 void Animation::update() {
     frame += speed;
     const auto n = frames.size();

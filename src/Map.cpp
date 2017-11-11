@@ -1,4 +1,5 @@
 #include "Map.hpp"
+#include "Perso.hpp"
 
 Map::Map() {
     initObstacles();
@@ -11,22 +12,22 @@ Map::~Map() {
 void Map::testCollisions(Perso p){
     p.setColleMur(false);
     for(auto &obstacle: obstacles){
-        if(	(obstacle->getBody().getX()>=p.getBody().getX() && obstacle->getBody().getX()<=p.getBody().getX()+p.getBody().getWidth() || p.getBody().getX()>=obstacle->getBody().getX() && p.getBody().getX()<=obstacle->getBody().getX()+obstacle->getBody().getWidth())
+        if(	(obstacle.getX()>=p.getX() && obstacle.getX()<=p.getX()+p.getW() || p.getX()>=obstacle.getX() && p.getX()<=obstacle.getX()+obstacle.getW())
                &&
-                (obstacle->getBody().getY()>=p.getBody().getY() && obstacle->getBody().getY()<=p.getBody().getY()+p.getBody().getHeight() || p.getBody().getY()>=obstacle->getBody().getY() && p.getBody().getY()<=obstacle->getBody().getY()+obstacle->getBody().getHeight())
+                (obstacle.getY()>=p.getY() && obstacle.getY()<=p.getY()+p.getH() || p.getY()>=obstacle.getY() && p.getY()<=obstacle.getY()+obstacle.getH())
                 ){
-            if(obstacle->getBody().getY()>p.getBody().getY()+p.getBody().getHeight()) {
-                p.getBody().setY(obstacle->getBody().getY()+obstacle->);
+            if(obstacle.getY()>p.getY()+p.getH()) {
+                p.setY(obstacle.getY()+obstacle.);
             }
-            else if(obstacle->getBody().getY()>p.getBody().getY()){
-                p.getBody().setY(obstacle->getBody().getY()+obstacle->getBody().getHeight());
+            else if(obstacle.getY()>p.getY()){
+                p.setY(obstacle.getY()+obstacle.getH());
             }
 
-            if(obstacle->getBody().getX()>p.getBody().getX()+p.getBody().getWidth()) {
-                p.getBody().setX(obstacle->getBody().getX());
+            if(obstacle.getX()>p.getX()+p.getW()) {
+                p.setX(obstacle.getX());
             }
-            else if(obstacle->getBody().getX()>p.getBody().getX()){
-                p.getBody().setX(obstacle->getBody().getX()+obstacle->getBody().getWidth());
+            else if(obstacle.getX()>p.getX()){
+                p.setX(obstacle.getX()+obstacle.getW());
             }
         }
     }

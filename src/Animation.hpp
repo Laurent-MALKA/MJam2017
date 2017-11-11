@@ -11,6 +11,7 @@ public:
 
     Animation(int x, int y, int w, int h, int count, float speed);
 
+    void reset();
     void update();
 
     SDL_Rect getRect();

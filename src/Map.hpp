@@ -2,6 +2,9 @@
 #define MJAM2017_MAP_HPP
 
 
+#include "Perso.hpp"
+#include "Obstacle.hpp"
+
 class Map {
 public:
     Map();
@@ -11,7 +14,7 @@ public:
 private:
     void initObstacles();
 
-    Obstacle* obstacles;
+    std::vector<Obstacle> obstacles;
 
 };
 

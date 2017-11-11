@@ -24,11 +24,13 @@ public:
     void setV_v_act(float v_v_act);
     void setEnLAir(bool enLAir);
     void setColleMur(bool colleMur);
+    void setAnimation(int i);
 
     bool isEnLAir() const;
     bool isColleMur() const;
     bool isGoingLeft() const;
 
+    void update();
     void deplacement();
     void saut();
     void lancerGrappin();
