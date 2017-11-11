@@ -55,7 +55,7 @@ Body.o: Body.cpp Body.hpp
 Bonus.o: Bonus.cpp Bonus.hpp
 Cola.o: Cola.cpp Cola.hpp Bonus.hpp
 Display.o: Display.cpp Display.hpp
-Grappin.o: Grappin.cpp Grappin.hpp
+Grappin.o: Grappin.cpp Grappin.hpp Body.hpp
 GrappinSpe.o: GrappinSpe.cpp GrappinSpe.hpp
 Inputs.o: Inputs.cpp Inputs.hpp
 Jeu.o: Jeu.cpp Jeu.hpp
