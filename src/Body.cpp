@@ -21,7 +21,7 @@ void Body::setH(int newH) {
    this->xywh[3] = newH;
 }
 
-void setPosition(int x, int y) {
+void Body::setPosition(int x, int y) {
    this->setX(x);
    this->setY(y);
 }
