@@ -8,6 +8,7 @@
 
 #include "Image.hpp"
 #include "Perso.hpp"
+#include "Map.hpp"
 
 class Display {
 public:
@@ -20,7 +21,7 @@ public:
 
    bool isInitialized();
 
-   void display(Perso *p1, Perso *p2);
+   void display(Perso *p1, Perso *p2,Map map);
 
    void scrolling(int x, int y);
 

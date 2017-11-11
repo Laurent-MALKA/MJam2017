@@ -37,7 +37,7 @@ void Jeu::gameloop() {
             pP.push_back(p2);
             map.testCollisions(pP,checkpoints);
 
-            display.display(p1,p2);
+            display.display(p1,p2,map);
             SDL_Delay(16);
             fin = inputs.exit();
         }
@@ -52,8 +52,8 @@ void Jeu::init(){
     std::vector<Animation*> animation;
     animation.push_back(new Animation(0,0,512/4,512/4,4,0.1));
 
-    p1= new Perso(spriteSheet,&animation,Body(100,300,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
-    p2= new Perso(spriteSheet,&animation,Body(0,0,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
+    p1= new Perso(spriteSheet,&animation,Body(100,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
+    p2= new Perso(spriteSheet,&animation,Body(0,0,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
 
     int x;
     std::ifstream file;

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Display.hpp"
 #include "Perso.hpp"
+#include "Map.hpp"
 
 Display::Display(int sdlFlags, int imgFlags, char * winName):
    isInit(false),
@@ -86,11 +87,12 @@ bool Display::isInitialized() {
 }
 
 
-void Display::display(Perso *p1, Perso *p2) {
+void Display::display(Perso *p1, Perso *p2,Map map) {
    scrolling(p1->getX(),p1->getY());
     SDL_SetRenderDrawColor(rdr,0,0,0,0);
     SDL_RenderClear(rdr);
    this->background.display(&rect);
+   map.display(rdr,rect);
    p1->display(rdr,rect);
    p2->display(rdr,rect);
 
