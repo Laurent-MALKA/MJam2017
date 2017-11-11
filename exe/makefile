@@ -18,7 +18,7 @@ BLD_REP=../build/
 SRC_REP=../src/
 EXE_REP=./
 
-CFLAGS=-Wall -Wextra
+CFLAGS=-Wall -Wextra -std=c++11
       #-MMD -O2
       #-ansi -pedantic
       #-Wchar-subscripts -Wdouble-promotion
@@ -26,11 +26,10 @@ CFLAGS=-Wall -Wextra
 LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_ttf
 INCLUDES=
 
-OBJ=Bonus.o Cola.o Display.o Grappin.o GrappinSpe.o Inputs.o Jeu.o \
-    main.o Map.o Moteur.o Obstacle.o Perso.o Pos.o Touches.o
-# Animation.o
+OBJ=Body.o Bonus.o Cola.o Display.o Grappin.o GrappinSpe.o Inputs.o\
+    Jeu.o main.o Map.o Moteur.o Obstacle.o Perso.o Touches.o
 EXE=mJam
-
+#Animation.o
 
 ###  ADAPTATION  ###############################################################
 
@@ -52,6 +51,7 @@ $(EXEC): $(BLD_OBJ)
 ###  DEPENDANCES  ##############################################################
 
 #Animation.o: Animation.cpp Animation.hpp
+Body.o: Body.cpp Body.hpp
 Bonus.o: Bonus.cpp Bonus.hpp
 Cola.o: Cola.cpp Cola.hpp Bonus.hpp
 Display.o: Display.cpp Display.hpp
@@ -64,7 +64,6 @@ Map.o: Map.cpp Map.hpp
 Moteur.o: Moteur.cpp Moteur.hpp
 Obstacle.o: Obstacle.cpp Obstacle.hpp
 Perso.o: Perso.cpp Perso.hpp
-Pos.o: Pos.cpp Pos.hpp
 Touches.o: Touches.cpp Touches.hpp
 
 
