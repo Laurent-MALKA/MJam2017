@@ -27,7 +27,7 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             this->isInit = true;
 
             /* creation des images */
-            this->background(this->rdr, "background", 0, 0);
+            this->background = Image(this->rdr, "assets/background.jpg", 0, 0);
          }
       }
    }

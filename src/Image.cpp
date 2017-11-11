@@ -7,7 +7,7 @@ Image::Image():
 
 Image::Image(SDL_Renderer * rdr, char * str, int x, int y):
    rdr(rdr) {
-   SDL_Surface * s = IMG_Load(str.c_str());
+   SDL_Surface * s = IMG_Load(str);
    this->img = SDL_CreateTextureFromSurface(rdr, s);
 
    this->rct.x = x;
