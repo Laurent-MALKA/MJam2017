@@ -50,8 +50,8 @@ void Map::testCollisions(std::vector<Perso*> p) {
             }
         }
 
-        if (p[i]->getBonus() != NULL && p[i]->getBonus()->getUtilise() == 1 && estEnColision(*p[i]->getBonus(), *p[i+1%2])) {
-            p[i]->getBonus()->mort(p[i+1%2]);
+        if (p[i]->getBonus() != NULL && p[i]->getBonus()->getUtilise() == 1 && estEnColision2(*p[(i+1)%2], *p[i]->getBonus())) {
+            p[i]->getBonus()->mort(p[(i+1)%2]);
         }
 
     }
@@ -80,4 +80,11 @@ bool Map::estEnColision(Body p, Obstacle obstacle){
            (obstacle.getY()>=p.getY() && obstacle.getY()<=p.getY()+p.getH() || p.getY()>=obstacle.getY() && p.getY()<=obstacle.getY()+obstacle.getH())
             ;
 
+}
+
+bool Map::estEnColision2(Perso p, Body b){
+    return	(b.getX()>=p.getX() && b.getX()<=p.getX()+p.getW() || p.getX()>=b.getX() && p.getX()<=b.getX()+b.getW())
+              &&
+              (b.getY()>=p.getY() && b.getY()<=p.getY()+p.getH() || p.getY()>=b.getY() && p.getY()<=b.getY()+b.getH())
+            ;
 }

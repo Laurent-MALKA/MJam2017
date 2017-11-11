@@ -21,6 +21,7 @@
 #define GRAP_MAX_LENGTH 9
 
 class Perso;
+class Bonus;
 
 class Grappin: public Body {
 public:

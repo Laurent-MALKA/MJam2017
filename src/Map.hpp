@@ -16,6 +16,7 @@ private:
     bool estEnColision(Body p, Obstacle obstacle);
     std::vector<Obstacle> obstacles;
 
+    bool estEnColision2(Perso p, Body b);
 };
 
 

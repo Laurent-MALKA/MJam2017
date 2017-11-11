@@ -5,6 +5,8 @@
 #include "Body.hpp"
 #include "Perso.hpp"
 
+class Perso;
+
 class Bonus : public Body {
 public:
     Bonus(Perso* monPerso);
