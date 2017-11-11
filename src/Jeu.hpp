@@ -1,7 +1,6 @@
 #ifndef MJAM2017_JEU_HPP
 #define MJAM2017_JEU_HPP
 
-
 #include "Inputs.hpp"
 #include "Moteur.hpp"
 #include "Display.hpp"

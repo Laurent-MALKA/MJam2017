@@ -19,7 +19,7 @@ Image::Image(SDL_Renderer * rdr, char * str, int x, int y):
 }
 
 Image::~Image() {
-   SDL_DestroyTexture(this->img);
+   // SDL_DestroyTexture(this->img);
 }
 
 void Image::setPosition(int x, int y) {
@@ -41,5 +41,6 @@ void Image::setDimension(int w, int h) {
 }
 
 void Image::display() {
-   SDL_RenderCopy(this->rdr, this->img, NULL, &this->rct);
+//    printf("%d:%d:%d:%d\n", this->rct.x, this->rct.y, this->rct.w, this->rct.h);
+   SDL_RenderCopy(this->rdr, this->img, NULL, &(this->rct));
 }

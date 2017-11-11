@@ -1,6 +1,7 @@
 #ifndef __IMAGE_HPP__
 #define __IMAGE_HPP__
 
+#include <cstdio>
 #include <cstdlib>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
