@@ -21,7 +21,7 @@ public:
 
    void setDimension(int w, int h);
 
-   void display();
+   void display(SDL_Rect *rect);
 
    
 

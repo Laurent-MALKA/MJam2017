@@ -29,11 +29,15 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             this->isInit = true;
 
             /* creation des images */
-            this->background = Image(this->rdr, "assets/background.jpg", 0, 0);
+            this->background = Image(this->rdr, "assets/map.png", 0, 0);
             this->background.setDimension(WINDOW_WIDTH, WINDOW_HEIGHT);
          }
       }
    }
+   rect.x = 0;
+   rect.y = 0;
+   rect.w = WINDOW_WIDTH;
+   rect.y = WINDOW_HEIGHT;
 }
 
 
@@ -83,9 +87,10 @@ bool Display::isInitialized() {
 
 
 void Display::display(Perso *p1, Perso *p2) {
+   scrolling(p1->getX(),p1->getY());
     SDL_SetRenderDrawColor(rdr,0,0,0,0);
     SDL_RenderClear(rdr);
-   this->background.display();
+   this->background.display(&rect);
    p1->display(rdr);
    p2->display(rdr);
 

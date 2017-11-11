@@ -40,7 +40,7 @@ void Image::setDimension(int w, int h) {
    this->rct.h = h;
 }
 
-void Image::display() {
+void Image::display(SDL_Rect *rect) {
 //    printf("%d:%d:%d:%d\n", this->rct.x, this->rct.y, this->rct.w, this->rct.h);
-   SDL_RenderCopy(this->rdr, this->img, NULL, &(this->rct));
+   SDL_RenderCopy(this->rdr, this->img, rect, &(this->rct));
 }

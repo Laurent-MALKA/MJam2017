@@ -126,9 +126,10 @@ void Perso::lancerBonus() {
 }
 
 Perso::~Perso() {
-    free(animation);
-    free(bonus);
-    free(spriteSheet);
+    delete animation;
+    delete bonus;
+    if(spriteSheet)
+        SDL_DestroyTexture(spriteSheet);
 }
 
 float Perso::getV_v_act() const {
