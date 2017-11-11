@@ -1,9 +1,10 @@
 #ifndef MJAM2017_OBSTACLE_HPP
 #define MJAM2017_OBSTACLE_HPP
 
+#include "Body.hpp"
 
-class Obstacle {
-
+class Obstacle: public Body {
+   Obstacle(int x, int y, int w, int h);
 };
 
 
