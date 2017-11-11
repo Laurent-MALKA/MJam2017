@@ -1,14 +1,15 @@
 #include "Perso.hpp"
 
-Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body body, Touches touches): Body(body), v_h_max(10.0),
-                                                                                                     v_h_act(0),
-                                                                                                     acc_h(0),
-                                                                                                     v_v_act(0),
-                                                                 enLAir(false), goesLeft(true), colleMur(false),
-                                                                 nbBiere(0), bonus(), touches(touches), grappin(this,false),
-                                                                 body(body) {
-    this->spriteSheet = spriteSheet;
-    this->animations = animations;
+Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body body, Touches touches):
+   Body(body), v_h_max(10.0),
+   v_h_act(0),
+   acc_h(0),
+   v_v_act(0),
+   enLAir(false), goesLeft(true), colleMur(false),
+   nbBiere(0), bonus(), touches(touches), grappin(this,false),
+   body(body) {
+   this->spriteSheet = spriteSheet;
+   this->animations = animations;
 }
 
 //Test collision et changement position dans Moteur

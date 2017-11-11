@@ -28,6 +28,7 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
 
             /* creation des images */
             this->background = Image(this->rdr, "assets/background.jpg", 0, 0);
+            this->background.setDimension(WINDOW_WIDTH, WINDOW_HEIGHT);
          }
       }
    }
