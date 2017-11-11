@@ -20,7 +20,7 @@ public:
 
    bool collides(Body other);
 
-   int distance(Body other);
+   double distance(Body other);
 
 private:
    int xywh[4];
