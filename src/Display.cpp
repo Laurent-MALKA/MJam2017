@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Display.hpp"
 
 Display::Display(int sdlFlags, int imgFlags, char * winName):
@@ -81,7 +82,10 @@ bool Display::isInitialized() {
 
 
 void Display::display() {
+    SDL_SetRenderDrawColor(rdr,0,0,0,0);
+    SDL_RenderClear(rdr);
    this->background.display();
+
    SDL_RenderPresent(this->rdr);
 }
 
