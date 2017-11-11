@@ -1,0 +1,10 @@
+#ifndef MJAM2017_GRAPPINSPE_HPP
+#define MJAM2017_GRAPPINSPE_HPP
+
+
+class GrappinSpe {
+
+};
+
+
+#endif //MJAM2017_GRAPPINSPE_HPP
