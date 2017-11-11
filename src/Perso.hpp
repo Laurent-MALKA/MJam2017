@@ -45,7 +45,8 @@ private:
 class Perso: public Body {
 
 public:
-    Perso(SDL_Texture *tileset,std::vector<Animation*> *animations,Body body, Touches touches);
+    Perso(): Body(0,0,0,0), touches(SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES){}
+    Perso(SDL_Texture *spriteSheet,std::vector<Animation*> *animations,Body body, Touches touches);
 
     const Touches &getTouches() const;
 
@@ -55,18 +56,22 @@ public:
     void setEnLAir(bool enLAir);
     void setColleMur(bool colleMur);
     void setAnimation(int i);
+    void setBonus(Bonus *bonus);
 
     bool isEnLAir() const;
     bool isColleMur() const;
     bool isGoingLeft() const;
+    bool hasBonus();
+    float getV_v_act();
 
     void update();
     void deplacement();
     void saut();
     void lancerGrappin();
+    void lancerBonus();
 
 private:
-    SDL_Texture *tileset;
+    SDL_Texture *spriteSheet;
     Animation *animation;
     std::vector<Animation*> *animations;
     float v_h_max;

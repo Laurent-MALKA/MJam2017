@@ -1,13 +1,13 @@
 #include "Perso.hpp"
 
-Perso::Perso(SDL_Texture * tileset,std::vector<Animation*> *animations, Body body, Touches touches): v_h_max(10.0),
+Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body body, Touches touches): Body(body), v_h_max(10.0),
                                                                                                      v_h_act(0),
                                                                                                      acc_h(0),
                                                                                                      v_v_act(0),
                                                                  enLAir(false), goesLeft(true), colleMur(false),
                                                                  nbBiere(0), bonus(), touches(touches), grappin(this,false),
                                                                  body(body) {
-    this->tileset = tileset;
+    this->spriteSheet = spriteSheet;
     this->animations = animations;
 }
 
@@ -94,4 +94,20 @@ void Perso::update() {
 void Perso::setAnimation(int i) {
     animation = (*animations)[i];
     animation->reset();
+}
+
+bool Perso::hasBonus() {
+    return bonus != NULL;
+}
+
+void Perso::setBonus(Bonus *bonus) {
+    this->bonus = bonus;
+}
+
+void Perso::lancerBonus() {
+    bonus->effet();
+}
+
+float Perso::getV_v_act() {
+    return v_v_act;
 }

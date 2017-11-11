@@ -67,3 +67,5 @@ double Body::distance(Body other) {
             (getY() - other.getY()) * (getY() - other.getY());
    return sqrt(d2);
 }
+
+Body::Body() {}
