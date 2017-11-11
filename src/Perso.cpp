@@ -52,7 +52,7 @@ void Perso::bouger(){
 
 void Perso::saut(){
     setY(int(getY()-v_v_act));
-    v_v_act-=1;
+    v_v_act-=0.8;
 }
 
 Grappin Perso::getGrappin() const{
