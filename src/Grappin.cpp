@@ -5,21 +5,27 @@ Grappin::Grappin(Perso * p, bool spc):
    Body(0, 0, GRAP_WIDTH, GRAP_HEIGHT),
    etat(GRAP_S_RETRACTE),
    vit(GRAP_BASESPEED),
+   len(0),
    goesLeft(true),
    estSpecial(spc) {
    this->p = p;
 }
+
+Grappin::Grappin():
+Grappin(NULL, false) {}
 
 void Grappin::lancer() {
    this->setX(this->p->getX());
    this->setY(this->p->getY());
    this->etat = GRAP_S_LANCE;
    this->goesLeft = this->p->isGoingLeft();
+   this->len = 0;
 }
 
 void Grappin::bouger() {
    switch (this->etat) {
       case GRAP_S_LANCE:
+         ++this->len;
          if (this->estSpecial) {
             if (this->goesLeft) {
                this->inc(-this->vit, -this->vit);
@@ -35,6 +41,7 @@ void Grappin::bouger() {
          }
          break;
       case GRAP_S_RETOUR:
+         --this->len;
          this->setX(this->p->getX());
          this->setY(this->p->getY());
          this->etat = GRAP_S_RETRACTE;
@@ -46,6 +53,7 @@ void Grappin::bouger() {
 void Grappin::stop() {
    if (this->etat == GRAP_S_LANCE) {
       this->etat = GRAP_S_ACCROCHE;
+      this->len = 0;
    }
 }
 

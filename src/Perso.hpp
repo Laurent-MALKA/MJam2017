@@ -18,6 +18,8 @@
 
 #define GRAP_BASESPEED  3
 
+#define GRAP_MAX_LENGTH 9
+
 class Perso;
 
 class Grappin: public Body {
@@ -34,6 +36,7 @@ public:
 private:
    int     etat;
    int     vit;
+   int     len;
    bool    goesLeft;
    bool    estSpecial;
    Perso * p;

@@ -3,4 +3,6 @@
 
 #include "Perso.hpp"
 
+// va voir dans Perso.hpp
+
 #endif
