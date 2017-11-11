@@ -45,7 +45,7 @@ void Perso::bouger(){
     if(getGrappin().getEtat()!=GRAP_S_RETRACTE){
         getGrappin().bouger();
     }
-    if(bonus!=NULL && bonus->getUtilise()==1){
+    if(bonus!=NULL && bonus->getUtilise()){
         bonus->bouger();
     }
 }
