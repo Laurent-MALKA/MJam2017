@@ -33,7 +33,7 @@ public:
 
     bool isKeyboardReleased();
 
-    void analyseInputs(Perso* p1);
+    void analyseInputs(Perso* p);
 
     bool exit();
 

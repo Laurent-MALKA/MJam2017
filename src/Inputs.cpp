@@ -66,32 +66,32 @@ bool Inputs::isKeyboardReleased() {
     return out;
 }
 
-void Inputs::analyseInputs(Perso* p1){
-    if(isStillPressed(p1->getTouches().getT_droite()) && isStillPressed(p1->getTouches().getT_gauche())){
-        p1->setAcc_h(0);
+void Inputs::analyseInputs(Perso* p){
+    if(isStillPressed(p->getTouches().getT_droite()) && isStillPressed(p->getTouches().getT_gauche())){
+        p->setAcc_h(0);
     }
-    else if(isStillPressed(p1->getTouches().getT_droite())){
-        p1->setAcc_h(2);
+    else if(isStillPressed(p->getTouches().getT_droite())){
+        p->setAcc_h(2);
     }
-    else if(isStillPressed(p1->getTouches().getT_gauche())){
-        p1->setAcc_h(-2);
+    else if(isStillPressed(p->getTouches().getT_gauche())){
+        p->setAcc_h(-2);
     }
-    if(isStillPressed(p1->getTouches().getT_saut()) && !p1->isEnLAir()){
-        p1->setV_v_act(10);
-        p1->setEnLAir(true);
+    if(isStillPressed(p->getTouches().getT_saut()) && !p->isEnLAir()){
+        p->setV_v_act(10);
+        p->setEnLAir(true);
     }
-    if(isJustPressed(p1->getTouches().getT_grappin()) && p1->getGrappin().getEtat()){
-        p1->lancerGrappin();
+    if(isJustPressed(p->getTouches().getT_grappin()) && p->getGrappin().getEtat()){
+        p->lancerGrappin();
     }
-    if(isStillPressed(p1->getTouches().getT_bonus()) && p1->hasBonus()){
-        p1->lancerBonus();
+    if(isStillPressed(p->getTouches().getT_bonus()) && p->hasBonus()){
+        p->lancerBonus();
     }
-    if(isStillPressed(p1->getTouches().getT_saut()) && p1->isColleMur()){
+    if(isStillPressed(p->getTouches().getT_saut()) && p->isColleMur()){
         int x=-1;
-        if(p1->isGoingLeft()){
+        if(p->isGoingLeft()){
             x=1;
         }
-        p1->setAcc_h(x*3);
+        p->setAcc_h(x*3);
     }
 }
 

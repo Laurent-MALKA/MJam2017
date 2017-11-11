@@ -30,7 +30,7 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
 
             /* creation des images */
             this->background = Image(this->rdr, "assets/map.png", 0, 0);
-            this->background.setDimension(WINDOW_WIDTH, WINDOW_HEIGHT);
+            this->background.setDimension(WINDOW_WIDTH*3, WINDOW_HEIGHT*3);
          }
       }
    }
