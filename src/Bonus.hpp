@@ -3,7 +3,8 @@
 
 
 class Bonus {
-
+public:
+    virtual void effet() = 0;
 };
 
 
