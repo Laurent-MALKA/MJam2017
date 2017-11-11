@@ -26,16 +26,16 @@ void Perso::deplacement(){
     if(vitesse>v_h_max) {
         vitesse = v_h_max;
     }
-    else if(vitesse<-v_max){
+    else if(vitesse<-v_h_max){
         vitesse=-v_h_max;
     }
 
     v_h_act=vitesse;
 
-    body.x=body.x+v_h_act;
+    body.setX(int(body.getX()+v_h_act));
 }
 
 void Perso::saut(){
-    body.y=body.y-v_v_act;
+    body.setY(int(body.getY()-v_v_act));
     v_v_act-=1;
 }

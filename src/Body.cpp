@@ -40,9 +40,9 @@ int Body::getH() {
 
 bool Body::collides(Body other) {
    return !(
-      this->getX() + this->getW() < other->getX()
-   || this->getY() + this->getH() < other->getY()
-   || other->getX() + other->getW() < this->getX()
-   || other->getY() + other->getH() < this->getY()
+      this->getX() + this->getW() < other.getX()
+   || this->getY() + this->getH() < other.getY()
+   || other.getX() + other.getW() < this->getX()
+   || other.getY() + other.getH() < this->getY()
    );
 }

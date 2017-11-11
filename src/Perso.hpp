@@ -2,10 +2,15 @@
 #define MJAM2017_PERSO_HPP
 
 
+#include "Touches.hpp"
+#include "Bonus.hpp"
+#include "Body.hpp"
+#include "Grappin.hpp"
+
 class Perso {
 
 public:
-    Perso(Pos pos, Touches touches);
+    Perso(Body body, Touches touches);
     void deplacement();
     void saut();
 private:
@@ -16,7 +21,7 @@ private:
     float v_v_act;
     bool enLAir;
     unsigned nbBiere;
-    Bonus bonus;
+    Bonus *bonus;
     Touches touches;
     Body body;
     Grappin grappin;
