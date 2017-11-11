@@ -70,6 +70,7 @@ public:
     float getV_v_act();
 
     void update();
+    void display(SDL_Renderer *rdr);
     void saut();
     void lancerGrappin();
     void lancerBonus();

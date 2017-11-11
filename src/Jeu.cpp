@@ -15,6 +15,8 @@ void Jeu::gameloop() {
         fin = false;
         while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
             inputs.update();
+            p1->update();
+            p2->update();
 
             inputs.analyseInputs(p1);
             inputs.analyseInputs(p2);
@@ -29,7 +31,7 @@ void Jeu::gameloop() {
             map.testCollisions(p1);
             map.testCollisions(p2);
 
-            display.display();
+            display.display(p1,p2);
             SDL_Delay(16);
             fin = inputs.exit();
         }

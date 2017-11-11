@@ -10,6 +10,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
    body(body) {
    this->spriteSheet = spriteSheet;
    this->animations = animations;
+    animation = (*animations)[0];
 }
 
 //Test collision et changement position dans Moteur
@@ -115,4 +116,11 @@ void Perso::lancerBonus() {
 
 float Perso::getV_v_act() {
     return v_v_act;
+}
+
+void Perso::display(SDL_Renderer *rdr) {
+    SDL_Rect dstrect = {getX(),getY(),getW(),getH()};
+    SDL_Rect srcrect = animation->getRect();
+    SDL_RendererFlip flip = (goesLeft) ? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE;
+    SDL_RenderCopyEx(rdr,spriteSheet,&srcrect,&dstrect,0,NULL,flip);
 }

@@ -7,6 +7,7 @@
 #include <SDL2/SDL_image.h>
 
 #include "Image.hpp"
+#include "Perso.hpp"
 
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 700
@@ -25,7 +26,7 @@ public:
 
    bool isInitialized();
 
-   void display();
+   void display(Perso *p1, Perso *p2);
 
    void scrolling(int x, int y);
 

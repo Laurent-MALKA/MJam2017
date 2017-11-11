@@ -8,6 +8,7 @@ Animation::Animation(int x, int y, int w, int h, int count, float speed) {
         SDL_Rect rect = {(x+i)*w,y*h,w,h};
         frames.push_back(rect);
     }
+
 }
 
 void Animation::reset() {

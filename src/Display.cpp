@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Display.hpp"
+#include "Perso.hpp"
 
 Display::Display(int sdlFlags, int imgFlags, char * winName):
    isInit(false),
@@ -81,10 +82,13 @@ bool Display::isInitialized() {
 }
 
 
-void Display::display() {
+void Display::display(Perso *p1, Perso *p2) {
     SDL_SetRenderDrawColor(rdr,0,0,0,0);
     SDL_RenderClear(rdr);
    this->background.display();
+   p1->display(rdr);
+   p2->display(rdr);
+
 
    SDL_RenderPresent(this->rdr);
 }
