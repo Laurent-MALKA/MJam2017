@@ -1,16 +1,43 @@
 #ifndef MJAM2017_PERSO_HPP
 #define MJAM2017_PERSO_HPP
 
-
 #include <SDL2/SDL_system.h>
 #include <vector>
 #include "Touches.hpp"
 #include "Bonus.hpp"
 #include "Body.hpp"
-#include "Grappin.hpp"
 #include "Animation.hpp"
 
-class Grappin;
+#define GRAP_WIDTH     10
+#define GRAP_HEIGHT    10
+
+#define GRAP_S_RETRACTE 0
+#define GRAP_S_LANCE    1
+#define GRAP_S_ACCROCHE 2
+#define GRAP_S_RETOUR   3
+
+#define GRAP_BASESPEED  3
+
+class Perso;
+
+class Grappin: public Body {
+public:
+   Grappin();
+   Grappin(Perso * p, bool spc);
+
+   void lancer();
+   void bouger();
+   void relacher();
+
+   void stop();
+
+private:
+   int     etat;
+   int     vit;
+   bool    goesLeft;
+   bool    estSpecial;
+   Perso * p;
+};
 
 class Perso: public Body {
 
