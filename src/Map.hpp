@@ -11,6 +11,8 @@ public:
     ~Map();
     void initObstacles();
 
+    void display(SDL_Renderer *rdr, SDL_Rect map_rect);
+
     void testCollisions(std::vector<Perso*> p, int checkpoints[11][3]);
 private:
     bool estEnColision(Body p, Body obstacle);
