@@ -1,6 +1,6 @@
 #include "Display.hpp"
 
-Display::Display(int sdlFlags, int imgFlags, char * winName, int ts):
+Display::Display(int sdlFlags, int imgFlags, char * winName):
    isInit(false),
    windowWidth(WINDOW_WIDTH),
    windowHeight(WINDOW_HEIGHT) {

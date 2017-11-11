@@ -11,7 +11,7 @@
 
 class Display {
 public:
-   Display(int sdlFlags, int imgFlags, char * winName, int ts);
+   Display(int sdlFlags, int imgFlags, char * winName);
    ~Display();
 
    bool initSDL(int sdlFlags, int imgFlags);

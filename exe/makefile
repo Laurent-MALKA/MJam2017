@@ -26,7 +26,7 @@ CFLAGS=-Wall -Wextra
 LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_ttf
 INCLUDES=
 
-OBJ=
+OBJ=main.o Inputs.o Display.o
 EXE=mJam
 
 
@@ -49,6 +49,9 @@ $(EXEC): $(BLD_OBJ)
 
 ###  DEPENDANCES  ##############################################################
 
+main.o: main.cpp
+Inputs.o: Inputs.cpp Inputs.hpp
+Display.o: Display.cpp Display.hpp
 
 
 ###  REGLES D'INFERENCES  ######################################################
