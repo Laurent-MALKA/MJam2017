@@ -18,6 +18,8 @@ public:
    void setX(int x);
    void setY(int y);
 
+   void setDimension(int w, int h);
+
    void display();
 
 private:

@@ -35,6 +35,11 @@ void Image::setY(int y) {
    this->rct.y = y;
 }
 
+void Image::setDimension(int w, int h) {
+   this->rct.w = w;
+   this->rct.h = h;
+}
+
 void Image::display() {
    SDL_RenderCopy(this->rdr, this->img, NULL, &this->rct);
 }
