@@ -23,6 +23,8 @@ public:
 
    void display();
 
+   
+
 private:
    SDL_Renderer * rdr;
    SDL_Texture  * img;
