@@ -20,6 +20,8 @@ private:
     Map map;
     Perso* p1;
     Perso* p2;
+    int checkpoints[11][3];
+
     //std::vector<Body> bodies;
 };
 

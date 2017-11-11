@@ -12,15 +12,6 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
    this->animations = animations;
     animation = (*animations)[0];
     checkpointAct=0;
-
-    int x;
-    std::ifstream file;
-    file.open("checkpoints", std::ios::in);
-    for(int i=0; i<11; i++){
-        file>>x;
-        checkpoints[i/3][i%3]=x;
-
-    }
 }
 
 //Test collision et changement position dans Moteur

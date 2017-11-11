@@ -104,7 +104,6 @@ private:
 //    Body body;
     Grappin grappin;
     int checkpointAct;
-    int checkpoints[11][3];
 public:
     int getCheckpointAct() const;
 
