@@ -12,8 +12,8 @@
 #define WINDOW_WIDTH 1000
 #define WINDOW_HEIGHT 700
 
-#define MAP_WIDTH    1123
-#define MAP_HEIGHT    816
+#define MAP_WIDTH     3369
+#define MAP_HEIGHT    2448
 
 class Display {
 public:

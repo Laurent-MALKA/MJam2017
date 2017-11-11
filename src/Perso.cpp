@@ -6,8 +6,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
    acc_h(0),
    v_v_act(0),
    enLAir(false), goesLeft(true), colleMur(false),
-   nbBiere(0), bonus(), touches(touches), grappin(this,false),
-   body(body) {
+   nbBiere(0), bonus(), touches(touches), grappin(this,false) {
    this->spriteSheet = spriteSheet;
    this->animations = animations;
     animation = (*animations)[0];
@@ -41,7 +40,7 @@ void Perso::bouger(){
 
     v_h_act=vitesse;
 
-    body.setX(int(body.getX()+v_h_act));
+    setX(int(getX()+v_h_act));
 
     if(getGrappin().getEtat()!=GRAP_S_RETRACTE){
         getGrappin().bouger();
@@ -52,7 +51,7 @@ void Perso::bouger(){
 }
 
 void Perso::saut(){
-    body.setY(int(body.getY()-v_v_act));
+    setY(int(getY()-v_v_act));
     v_v_act-=1;
 }
 

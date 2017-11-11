@@ -94,7 +94,7 @@ private:
     unsigned nbBiere;
     Bonus *bonus;
     Touches touches;
-    Body body;
+//    Body body;
     Grappin grappin;
 };
 
