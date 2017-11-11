@@ -1,7 +1,10 @@
 #include "main.hpp"
+#include "Jeu.hpp"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Jeu jeu;
+
+    jeu.gameloop();
 
     return EXIT_SUCCESS;
 }

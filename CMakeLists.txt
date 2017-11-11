@@ -15,5 +15,7 @@ set(SOURCE_FILES src/main.cpp src/Inputs.cpp src/Inputs.hpp src/Display.cpp src/
 
 set(CMAKE_CXX_FLAGS "-lSDL2 -lSDL2_ttf -lSDL2_image")
 
+set( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../exe )
+
 add_executable(Mjam2017 ${SOURCE_FILES})
 target_link_libraries(Mjam2017 ${SDL2_LIBRARY})

@@ -19,10 +19,12 @@ void Jeu::gameloop() {
             inputs.analyseInputs(p1);
             inputs.analyseInputs(p2);
 
-            if (p1->getV_v_act() != 0)
+            if (p1->getV_v_act() != 0) {
                 p1->saut();
-            if (p2->getV_v_act() != 0)
+            }
+            if (p2->getV_v_act() != 0) {
                 p2->saut();
+            }
 
             map.testCollisions(p1);
             map.testCollisions(p2);
@@ -41,6 +43,6 @@ void Jeu::init(){
     std::vector<Animation*> animation;
     animation.push_back(new Animation(0,0,40,43,6,0.2));
 
-    *p1=Perso(spriteSheet,&animation,Body(100,100,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
-    *p2=Perso(spriteSheet,&animation,Body(120,120,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
+    p1= new Perso(spriteSheet,&animation,Body(100,100,100,100),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
+    p2= new Perso(spriteSheet,&animation,Body(120,120,100,100),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
 }

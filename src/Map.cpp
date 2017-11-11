@@ -50,7 +50,7 @@ void Map::initObstacles() {
     if(file.is_open()) {
         int x, y, w, h;
 
-        while (file.cur != std::ios::end) {
+        while (file.tellg() < file.end) {
             file >> x;
             file >> y;
             file >> w;
