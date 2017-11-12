@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Jeu.hpp"
 
-Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Hello World !") {
+Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Kroforce") {
 
     init();
 

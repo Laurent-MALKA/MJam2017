@@ -29,7 +29,7 @@ INCLUDES=
 OBJ=Animation.o BeerBar.o Biere.o Body.o Bonus.o Cola.o Display.o Grappin.o\
     Image.o Inputs.o Jeu.o main.o Map.o Moteur.o Obstacle.o Perso.o Touches.o\
 	 Teleporteur.o
-EXE=mJam
+EXE=Kroforce
 
 
 ###  ADAPTATION  ###############################################################
