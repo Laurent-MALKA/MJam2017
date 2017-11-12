@@ -67,7 +67,7 @@ bool Inputs::isKeyboardReleased() {
 }
 
 void Inputs::analyseInputs(Perso* p){
-    if(p->getCptRebond()!=0 && (isStillPressed(p->getTouches().getT_droite()) && isStillPressed(p->getTouches().getT_gauche()) || isStillReleased(p->getTouches().getT_droite()) && isStillReleased(p->getTouches().getT_gauche()))){
+    if(/*p->getCptRebond()!=0 && */(isStillPressed(p->getTouches().getT_droite()) && isStillPressed(p->getTouches().getT_gauche()) || isStillReleased(p->getTouches().getT_droite()) && isStillReleased(p->getTouches().getT_gauche()))){
         p->setAcc_h(0);
     }
     else if(isStillPressed(p->getTouches().getT_droite()) && p->getCptRebond()==0){

@@ -11,8 +11,6 @@
 #include "Map.hpp"
 #include "main.hpp"
 
-#define NB_CHECKPOINTS 11
-
 class Map;
 
 class Display {
