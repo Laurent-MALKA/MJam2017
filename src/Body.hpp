@@ -1,13 +1,15 @@
 #ifndef MJAM2017_BODY_HPP
 #define MJAM2017_BODY_HPP
 
+#define BD_DIFF 18
+
 class Body {
 public:
    Body(int x, int y, int w, int h);
 
     Body();
 
-    void setX(int newX);
+   void setX(int newX);
    void setY(int newY);
    void setW(int newW);
    void setH(int newH);
@@ -21,6 +23,9 @@ public:
    int getY();
    int getW();
    int getH();
+
+   void desajust();
+   void reajust();
 
    bool collides(Body other);
 

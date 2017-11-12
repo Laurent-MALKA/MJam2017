@@ -13,6 +13,12 @@ Map::~Map() = default;
 
 void Map::testCollisions(std::vector<Perso*> p, int checkpoints[NB_CHECKPOINTS][2]) {
     int y;
+
+   p[0]->desajust();
+   p[1]->desajust();
+
+
+
     for (int i = 0; i < 2; i++) {
         p[i]->setColleMur(false);
         p[i]->setEnLAir(true);
@@ -79,7 +85,11 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[NB_CHECKPOINTS][
             p[i]->setCheckpointAct(p[i]->getCheckpointAct()+1);
         }
 
-    }
+   }
+
+   p[0]->reajust();
+   p[1]->reajust();
+
 }
 
 void Map::initObstacles() {

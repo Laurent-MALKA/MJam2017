@@ -5,7 +5,7 @@ Bonus::Bonus(Perso *monPerso) : monPerso(monPerso), utilise(false){
 }
 
 
-void Bonus::mort(Perso* p) {
+void Bonus::mort(Perso* monPerso) {
 
     monPerso->setBonus(nullptr);
 }

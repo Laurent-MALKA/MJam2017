@@ -69,3 +69,14 @@ double Body::distance(Body other) {
 }
 
 Body::Body() = default;
+
+
+void Body::desajust() {
+   this->setX(this->getX() + BD_DIFF);
+   this->setW(this->getW() - 2 * BD_DIFF);
+}
+
+void Body::reajust() {
+   this->setX(this->getX() - BD_DIFF);
+   this->setW(this->getW() + 2 * BD_DIFF);
+}
