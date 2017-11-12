@@ -87,8 +87,11 @@ void Jeu::init(){
     std::vector<Animation*> animation;
     animation.push_back(new Animation(0,0,512/4,512/4,4,0.1));
 
+    std::vector<Animation*> animation2;
+    animation2.push_back(new Animation(0,0,512/4,512/4,4,0.1));
+
     p1= new Perso(spriteSheet,&animation,Body(300,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E),0,0);
-    p2= new Perso(spriteSheet2,&animation,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P),WINDOW_WIDTH-100,0);
+    p2= new Perso(spriteSheet2,&animation2,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P),WINDOW_WIDTH-100,0);
 
     int x, y;
     std::ifstream file;

@@ -20,7 +20,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
 
 //Test collision et changement position dans Moteur
 void Perso::bouger(){
-    float vitesse=acc_h+v_h_act*(1+nbBiere/100);
+    float vitesse=acc_h+v_h_act;
 
     /*Décélération*/
     if(vitesse<0){
@@ -46,7 +46,7 @@ void Perso::bouger(){
 
     v_h_act=vitesse;
 
-    setX(int(getX()+v_h_act));
+    setX(int(getX()+v_h_act*(1+float(nbBiere)/200)));
 
     if(getGrappin().getEtat()!=GRAP_S_RETRACTE){
         getGrappin().bouger();
@@ -118,7 +118,8 @@ void Perso::lancerGrappin() {
 }
 
 void Perso::update() {
-    animation->update();
+    if(v_h_act)
+        animation->update();
     beerBar.update();
     nbBiere = beerBar.getLevel();
 }
