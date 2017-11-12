@@ -85,7 +85,7 @@ Jeu::~Jeu() {
 
 bool Jeu::ends() {
    return abs(p1->getX() - p2->getX()) > WINDOW_WIDTH
-   || abs(p1->getY() - p1->getY()) > WINDOW_HEIGHT;
+   || abs(p1->getY() - p2->getY()) > WINDOW_HEIGHT;
 }
 
 bool Jeu::P1Wins() {
@@ -93,18 +93,23 @@ bool Jeu::P1Wins() {
    int c2 = 0;
    int d1 = WINDOW_WIDTH;
    int d2 = WINDOW_WIDTH;
+   int tmp1, tmp2;
 
    for (int i = 0; i < NB_CHECKPOINTS; ++i) {
       Body checkpoint(checkpoints[i][0],checkpoints[i][1],0,0);
-      if (checkpoint.distance(*p1) < d1) {
+      tmp1 = checkpoint.distance(*p1);
+      tmp2 = checkpoint.distance(*p2);
+      if (tmp1 < d1) {
          c1 = i;
+         d1 = tmp1;
       }
-      if (checkpoint.distance(*p2) < d2) {
+      if (tmp2 < d2) {
          c2 = i;
+         d2 = tmp2;
       }
    }
 
    std::cout << c1 << ":" << c2 << std::endl;
 
-   return c1 < c2 && abs(c2-c1) < 50;
+   return abs(c2-c1) < 90 ? c1 > c2 : c1 < c2;
 }
