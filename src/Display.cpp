@@ -108,7 +108,7 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOIN
       }
    }
 
-
+/*
    if (abs(c1-c2) < 20) {
       if (c1 > c2) {
          scrolling(p1->getX(),p1->getY());
@@ -134,6 +134,9 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOIN
          }
       }
    }
+   */
+
+    scrolling((p1->getX()+p1->getW()/2 + p2->getX()+p2->getW()/2)/2,(p1->getY()+p1->getH()/2 + p2->getY()+p1->getW()/2)/2);
 
    p1->display(rdr,map_rect);
    p2->display(rdr,map_rect);
