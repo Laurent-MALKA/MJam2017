@@ -15,6 +15,46 @@ void Jeu::gameloop() {
 
     while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
         fin = false;
+        /*
+        TTF_Font *font = TTF_OpenFont("assets/arial.ttf",50);
+        SDL_Surface *rebours_surf = TTF_RenderText_Solid(font,"3",{255,255,255,0});
+        SDL_Texture *rebours_text = SDL_CreateTextureFromSurface(display.getRenderer(),rebours_surf);
+        SDL_FreeSurface(rebours_surf);
+        SDL_Rect rebours_rect;
+        rebours_rect.w = 150;
+        rebours_rect.h = 150;
+        rebours_rect.x = WINDOW_WIDTH/2 - rebours_rect.w/2;
+        rebours_rect.y = WINDOW_HEIGHT/2 - rebours_rect.h/2;
+
+        SDL_SetRenderDrawColor(display.getRenderer(),0,0,0,0);
+        SDL_RenderClear(display.getRenderer());
+        SDL_RenderCopy(display.getRenderer(),rebours_text, nullptr,&rebours_rect);
+        SDL_RenderPresent(display.getRenderer());
+        SDL_Delay(1000);
+        SDL_DestroyTexture(rebours_text);
+
+        SDL_SetRenderDrawColor(display.getRenderer(),0,0,0,0);
+        SDL_RenderClear(display.getRenderer());
+        rebours_surf = TTF_RenderText_Solid(font,"2",{255,255,255,0});
+        rebours_text = SDL_CreateTextureFromSurface(display.getRenderer(),rebours_surf);
+        SDL_FreeSurface(rebours_surf);
+        SDL_RenderCopy(display.getRenderer(),rebours_text, nullptr,&rebours_rect);
+        SDL_RenderPresent(display.getRenderer());
+        SDL_Delay(1000);
+        SDL_DestroyTexture(rebours_text);
+
+        SDL_SetRenderDrawColor(display.getRenderer(),0,0,0,0);
+        SDL_RenderClear(display.getRenderer());
+        rebours_surf = TTF_RenderText_Solid(font,"1",{255,255,255,0});
+        rebours_text = SDL_CreateTextureFromSurface(display.getRenderer(),rebours_surf);
+        SDL_FreeSurface(rebours_surf);
+        SDL_RenderCopy(display.getRenderer(),rebours_text, nullptr,&rebours_rect);
+        SDL_RenderPresent(display.getRenderer());
+        SDL_Delay(1000);
+        SDL_DestroyTexture(rebours_text);
+        */
+
+
         while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
             inputs.update();
             p1->update();
@@ -90,8 +130,11 @@ void Jeu::init(){
     std::vector<Animation*> animation;
     animation.push_back(new Animation(0,0,512/4,512/4,4,0.1));
 
+    std::vector<Animation*> animation2;
+    animation2.push_back(new Animation(0,0,512/4,512/4,4,0.1));
+
     p1= new Perso(spriteSheet,&animation,Body(300,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E),0,0);
-    p2= new Perso(spriteSheet2,&animation,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P),WINDOW_WIDTH-100,0);
+    p2= new Perso(spriteSheet2,&animation2,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P),WINDOW_WIDTH-100,0);
 
     int x, y;
     std::ifstream file;
