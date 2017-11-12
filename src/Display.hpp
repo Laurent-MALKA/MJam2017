@@ -14,6 +14,7 @@
 #include "Biere.hpp"
 
 #define NB_BIERES 10
+#define NB_BONUS 3
 
 class Map;
 
@@ -34,6 +35,9 @@ public:
 
    void scrolling(int x, int y);
 
+    //SDL_Texture* getWormhole() const;
+
+
 
 private:
    SDL_Window   * win;
@@ -51,6 +55,7 @@ private:
    /* Textures */
    Image background;
    Image biere;
+    Image wormhole;
 
    SDL_Texture *titre;
    SDL_Rect titre_rect;

@@ -5,7 +5,7 @@
 
 class Teleporteur: public Bonus {
 public:
-    explicit Teleporteur(Perso * p);
+    explicit Teleporteur(Perso * p, SDL_Texture* txt);
 
     void effet() override;
     void mort(Perso* perso) override;

@@ -35,6 +35,8 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
 
             this->biere = Image(this->rdr, const_cast<char *>("assets/biere.png"));
 
+            //this->wormhole = Image(this->rdr, const_cast<char *>("assets/wormhole.png"));
+
             TTF_Font *font = TTF_OpenFont("assets/FEASFBRG.TTF",150);
             SDL_Color color = {0,0,0,0};
             SDL_Surface *t_surface = TTF_RenderText_Blended(font,"Kroforce",color);
@@ -160,3 +162,9 @@ void Display::scrolling(int x, int y) {
 SDL_Renderer *Display::getRenderer() {
    return rdr;
 }
+
+/*
+SDL_Texture *Display::getWormhole() const {
+    return whormhole.ge;
+}
+ */

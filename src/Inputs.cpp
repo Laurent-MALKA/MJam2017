@@ -84,6 +84,7 @@ void Inputs::analyseInputs(Perso* p){
     if(isJustPressed(p->getTouches().getT_grappin()) && p->getGrappin().getEtat()){
         p->lancerGrappin();
     }*/
+
     if(isJustPressed(p->getTouches().getT_bonus()) && p->hasBonus()){
         p->lancerBonus();
     }

@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include "Jeu.hpp"
+#include "Teleporteur.hpp"
 
 Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Kroforce") {
 
@@ -90,6 +91,18 @@ void Jeu::gameloop() {
                biereTab[i].compter();
             }
 
+            /*
+            for(int i=0; i < NB_BONUS; i++){
+                if (p1->collides(bonusTab[i]) && bonusTab[i].isRamasse()) {
+                    p1->ramasserBonus(bonusTab[i]);
+                    bonusTab[i].setRamasse(true);
+                }
+                if (p2->collides(bonusTab[i]) && bonusTab[i].isRamasse()) {
+                    p2->ramasserBonus(bonusTab[i]);
+                    bonusTab[i].setRamasse(true);
+                }
+            }
+             */
 ////////////////////////////////////////////////////////////////////////////////
 
             if (ends()) {

@@ -1,13 +1,16 @@
 #include "Cola.hpp"
 
-Cola::Cola(Perso *monPerso) : Bonus(monPerso) {}
+Cola::Cola(Perso *monPerso, SDL_Texture* txt) : Bonus(monPerso, txt) {
+    setY(0);
+    setX(0);
+    setW(50);
+    setH(50);
+}
 
 void Cola::effet() {
     Bonus::utilise=true;
     setX(monPerso->getX());
     setY(monPerso->getY());
-    setW(50);
-    setH(50);
     directionX=(int)monPerso->getAcc_h();
     directionX=(directionX>=0)? 15 : -15;
     directionY=(int)monPerso->getV_v_act();
