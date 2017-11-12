@@ -69,18 +69,19 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[NB_CHECKPOINTS][
                         }
                     }
                 }
-
+                /*
                 if (p[i]->getGrappin().getEtat() == GRAP_S_LANCE && estEnColision(p[i]->getGrappin(), obstacle)) {
                     p[i]->getGrappin().stop();
                 }
-                if (p[i]->getBonus() != nullptr && p[i]->getBonus()->getUtilise() == 1 && estEnColision(*p[i]->getBonus(), obstacle)) {
-                    p[i]->getBonus()->mort(nullptr);
+                 */
+                if (p[i]->hasBonus() && p[i]->getBonus()->isUtilise() && estEnColision(*p[i]->getBonus(), obstacle)) {
+                    p[i]->resetBonus(nullptr);
                 }
             }
         }
 
-        if (p[i]->getBonus() != nullptr && p[i]->getBonus()->getUtilise() == 1 && estEnColision(*p[(i+1)%2], *p[i]->getBonus())) {
-            p[i]->getBonus()->mort(p[(i+1)%2]);
+        if (p[i]->hasBonus() && p[i]->getBonus()->isUtilise() && estEnColision(*p[(i+1)%2], *p[i]->getBonus())) {
+            p[i]->resetBonus(p[(i+1)%2]);
         }
         if(p[i]->getX()-checkpoints[p[i]->getCheckpointAct()][0]<20 && (p[i]->getY()>=checkpoints[p[i]->getCheckpointAct()][2] && p[i]->getY()<=checkpoints[p[i]->getCheckpointAct()][1] || checkpoints[p[i]->getCheckpointAct()][2]>=p[i]->getY() && checkpoints[p[i]->getCheckpointAct()][2]<=p[i]->getY()+p[i]->getH())){
             p[i]->setCheckpointAct(p[i]->getCheckpointAct()+1);

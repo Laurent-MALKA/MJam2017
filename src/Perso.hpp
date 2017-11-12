@@ -94,6 +94,7 @@ public:
     int getCptRebond() const;
 
     void setCptRebond(int i);
+    void resetBonus(Perso* p);
 
 private:
     SDL_Texture *spriteSheet{};

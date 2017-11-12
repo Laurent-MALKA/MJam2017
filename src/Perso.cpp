@@ -1,7 +1,6 @@
 #include <fstream>
 #include <iostream>
 #include "Perso.hpp"
-#include "Teleporteur.hpp"
 
 Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body body, Touches touches,int b_x, int b_y):
    Body(body), v_h_max(10.0),
@@ -18,8 +17,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
    this->animations = animations;
     animation = (*animations)[0];
     checkpointAct=0;
-    auto *tp = new Teleporteur(this);
-    bonus=tp;
+    bonus=nullptr;
 }
 
 //Test collision et changement position dans Moteur
@@ -55,13 +53,16 @@ void Perso::bouger(){
     if(getGrappin().getEtat()!=GRAP_S_RETRACTE){
         getGrappin().bouger();
     }
-    if(hasBonus() && bonus->getUtilise()){
-        std::cout<<"avant bouger"<<std::endl;
+    if(hasBonus() && bonus->isUtilise()){
         bonus->bouger();
     }
     if(cptRebond!=0){
         cptRebond--;
     }
+}
+
+void Perso::resetBonus(Perso* p){
+    bonus->mort(p);
 }
 
 void Perso::saut(){

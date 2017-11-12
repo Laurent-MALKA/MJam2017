@@ -30,7 +30,7 @@ private:
     Perso* p2;
     int checkpoints[NB_CHECKPOINTS][2];
     Biere biereTab[NB_BIERES];
-
+    //Bonus bonusTab[NB_BONUS];
     //std::vector<Body> bodies;
 };
 

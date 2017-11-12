@@ -7,7 +7,7 @@
 class Cola : public Bonus{
 
 public:
-    explicit Cola(Perso *monPerso);
+    Cola(Perso *monPerso, SDL_Texture* txt);
     void effet() override;
     void mort(Perso* perso) override;
     void bouger() override;

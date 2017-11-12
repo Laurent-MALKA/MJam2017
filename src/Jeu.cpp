@@ -91,6 +91,18 @@ void Jeu::gameloop() {
                biereTab[i].compter();
             }
 
+            /*
+            for(int i=0; i < NB_BONUS; i++){
+                if (p1->collides(bonusTab[i]) && bonusTab[i].isRamasse()) {
+                    p1->ramasserBonus(bonusTab[i]);
+                    bonusTab[i].setRamasse(true);
+                }
+                if (p2->collides(bonusTab[i]) && bonusTab[i].isRamasse()) {
+                    p2->ramasserBonus(bonusTab[i]);
+                    bonusTab[i].setRamasse(true);
+                }
+            }
+             */
 ////////////////////////////////////////////////////////////////////////////////
 
             if (ends()) {
@@ -136,10 +148,6 @@ void Jeu::init(){
 
     p1= new Perso(spriteSheet,animation,Body(300,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E),0,0);
     p2= new Perso(spriteSheet2,animation2,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P),WINDOW_WIDTH-100,0);
-
-    auto tp = new Teleporteur(nullptr);
-    tp->setX(300);
-    tp->setY(300);
 
     int x, y;
     std::ifstream file;
