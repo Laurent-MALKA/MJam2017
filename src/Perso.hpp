@@ -86,6 +86,12 @@ public:
     void saut();
     void lancerGrappin();
     void lancerBonus();
+    int getCheckpointAct() const;
+    void setCheckpointAct(int checkpointAct);
+
+    int getCptRebond() const;
+
+    void setCptRebond(int i);
 
 private:
     SDL_Texture *spriteSheet{};
@@ -99,15 +105,12 @@ private:
     bool goesLeft{};
     bool colleMur{};
     unsigned nbBiere{};
+    int cptRebond;
     Bonus *bonus{};
     Touches touches;
 //    Body body;
     Grappin grappin;
     int checkpointAct{};
-public:
-    int getCheckpointAct() const;
-
-    void setCheckpointAct(int checkpointAct);
 
 };
 

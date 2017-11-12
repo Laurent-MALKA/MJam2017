@@ -6,7 +6,8 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
    v_h_act(0),
    acc_h(0),
    v_v_act(0),
-   enLAir(false), goesLeft(false), colleMur(false),
+   enLAir(false), goesLeft(true), colleMur(false),
+   cptRebond(0),
    nbBiere(0), bonus(), touches(touches), grappin(this,false) {
    this->spriteSheet = spriteSheet;
    this->animations = animations;
@@ -49,6 +50,14 @@ void Perso::bouger(){
     }
     if(bonus!= nullptr && bonus->getUtilise()){
         bonus->bouger();
+    }
+    if(cptRebond!= 0){
+        if(cptRebond>0){
+            cptRebond--;
+        }
+        else{
+            cptRebond++;
+        }
     }
 }
 
@@ -158,4 +167,12 @@ int Perso::getCheckpointAct() const {
 
 void Perso::setCheckpointAct(int checkpointAct) {
     Perso::checkpointAct = checkpointAct%12;
+}
+
+int Perso::getCptRebond() const{
+    return cptRebond;
+}
+
+void Perso::setCptRebond(int i) {
+    cptRebond=i;
 }

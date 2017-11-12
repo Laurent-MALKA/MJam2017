@@ -67,17 +67,17 @@ bool Inputs::isKeyboardReleased() {
 }
 
 void Inputs::analyseInputs(Perso* p){
-    if(isStillPressed(p->getTouches().getT_droite()) && isStillPressed(p->getTouches().getT_gauche()) || isStillReleased(p->getTouches().getT_droite()) && isStillReleased(p->getTouches().getT_gauche())){
+    if(p->getCptRebond()!=0 && (isStillPressed(p->getTouches().getT_droite()) && isStillPressed(p->getTouches().getT_gauche()) || isStillReleased(p->getTouches().getT_droite()) && isStillReleased(p->getTouches().getT_gauche()))){
         p->setAcc_h(0);
     }
-    else if(isStillPressed(p->getTouches().getT_droite())){
+    else if(isStillPressed(p->getTouches().getT_droite()) && p->getCptRebond()==0){
         p->setAcc_h(2);
     }
-    else if(isStillPressed(p->getTouches().getT_gauche())){
+    else if(isStillPressed(p->getTouches().getT_gauche()) && p->getCptRebond()==0){
         p->setAcc_h(-2);
     }
     if(isStillPressed(p->getTouches().getT_saut()) && !p->isEnLAir()){
-        p->setV_v_act(10);
+        p->setV_v_act(15);
         p->saut();
         p->setEnLAir(true);
     }
@@ -87,13 +87,15 @@ void Inputs::analyseInputs(Perso* p){
     if(isJustPressed(p->getTouches().getT_bonus()) && p->hasBonus()){
         p->lancerBonus();
     }
-    if(isStillPressed(p->getTouches().getT_saut()) && p->isColleMur()){
-        int x=-1;
+    if(isJustPressed(p->getTouches().getT_saut()) && p->isColleMur()){
+        int x=-10;
         if(p->isGoingLeft()){
-            x=1;
+            x=10;
         }
-        p->setAcc_h(x*2);
-        p->setV_v_act(p->getV_v_act()+5);
+        p->setV_h_act(x);
+        p->setV_v_act(10);
+        p->setAcc_h(3*x/10);
+        p->setCptRebond(4*x);
     }
 }
 
