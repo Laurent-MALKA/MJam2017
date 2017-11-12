@@ -1,7 +1,7 @@
 #include <fstream>
 #include "Jeu.hpp"
 
-Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Hello World!") {
+Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"C'est quoi le nom ?") {
 
     init();
 
@@ -52,7 +52,7 @@ void Jeu::init(){
     std::vector<Animation*> animation;
     animation.push_back(new Animation(0,0,512/4,512/4,4,0.1));
 
-    p1= new Perso(spriteSheet,&animation,Body(100,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
+    p1= new Perso(spriteSheet,&animation,Body(340,440,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
     p2= new Perso(spriteSheet,&animation,Body(0,0,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
 
     int x;

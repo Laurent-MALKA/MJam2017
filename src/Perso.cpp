@@ -6,7 +6,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
    v_h_act(0),
    acc_h(0),
    v_v_act(0),
-   enLAir(false), goesLeft(true), colleMur(false),
+   enLAir(false), goesLeft(false), colleMur(false),
    nbBiere(0), bonus(), touches(touches), grappin(this,false) {
    this->spriteSheet = spriteSheet;
    this->animations = animations;
