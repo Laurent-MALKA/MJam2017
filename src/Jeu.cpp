@@ -38,6 +38,15 @@ void Jeu::gameloop() {
             pP.push_back(p2);
             map.testCollisions(pP,checkpoints);
 
+            for (int i = 0; i < NB_BIERES; ++i) {
+               if (p1->collides(biereTab[i])) {
+                  p1->grabBeer();
+               }
+               if (p2->collides(biereTab[i])) {
+                  p2->grabBeer();
+               }
+            }
+
 ////////////////////////////////////////////////////////////////////////////////
 
             if (ends()) {
@@ -107,6 +116,8 @@ void Jeu::init(){
     } else {
         std::cerr << "NTM:non" << std::endl;
     }
+
+    file.close();
 }
 
 Jeu::~Jeu() {
