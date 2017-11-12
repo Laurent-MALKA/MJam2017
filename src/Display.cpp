@@ -35,14 +35,14 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
 
             this->biere = Image(this->rdr, const_cast<char *>("assets/biere.png"));
 
-            TTF_Font *font = TTF_OpenFont("assets/arial.ttf",16);
+            TTF_Font *font = TTF_OpenFont("assets/FEASFBRG.TTF",150);
             SDL_Color color = {0,0,0,0};
-            SDL_Surface *t_surface = TTF_RenderText_Solid(font,"Kroforce",color);
+            SDL_Surface *t_surface = TTF_RenderText_Blended(font,"Kroforce",color);
             titre = SDL_CreateTextureFromSurface(rdr,t_surface);
             SDL_FreeSurface(t_surface);
 
-            titre_rect.x = 200;
-            titre_rect.y = 100;
+            titre_rect.x = 290;
+            titre_rect.y = 200;
             titre_rect.w = 400;
             titre_rect.h = 150;
          }

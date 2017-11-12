@@ -8,7 +8,7 @@
 #define BIERE_WIDTH  22
 #define BIERE_HEIGHT 49
 
-#define BIERE_TIME  100
+#define BIERE_TIME  50
 
 class Biere: public Body {
 public:

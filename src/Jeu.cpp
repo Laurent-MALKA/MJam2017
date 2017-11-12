@@ -93,13 +93,13 @@ void Jeu::gameloop() {
 ////////////////////////////////////////////////////////////////////////////////
 
             if (ends()) {
-                TTF_Font *font = TTF_OpenFont("assets/arial.ttf",50);
-                SDL_Surface *vainqueur_surf = TTF_RenderText_Solid(font,(P1Wins() ? "P1 Wins" : "P2 Wins"),{0,0,0,0});
+                TTF_Font *font = TTF_OpenFont("assets/FEASFBRG.TTF",200);
+                SDL_Surface *vainqueur_surf = TTF_RenderText_Blended(font,(P1Wins() ? "P1 Wins" : "P2 Wins"),{0,0,0,0});
                 SDL_Texture *vainqueur_text = SDL_CreateTextureFromSurface(display.getRenderer(),vainqueur_surf);
                 SDL_FreeSurface(vainqueur_surf);
                 SDL_Rect vainqueur_rect;
                 vainqueur_rect.w = WINDOW_WIDTH*3/4;
-                vainqueur_rect.h = 150;
+                vainqueur_rect.h = 200;
                 vainqueur_rect.x = WINDOW_WIDTH/2 - vainqueur_rect.w/2;
                 vainqueur_rect.y = WINDOW_HEIGHT/2 - vainqueur_rect.h/2;
                SDL_RenderCopy(display.getRenderer(),vainqueur_text, nullptr,&vainqueur_rect);
@@ -151,12 +151,10 @@ void Jeu::init(){
     file.close();
 
     file.open("assets/biereTab.txt", std::ios::in);
-    std::cout << x << ":" << y << std::endl;
     if(file.is_open()) {
         for (int i = 0; i < NB_BIERES; i++) {
             file >> x;
             file >> y;
-            std::cout << x << ":" << y << std::endl;
             biereTab[i] = Biere(x*3, y*3);
         }
     } else {
@@ -196,8 +194,6 @@ bool Jeu::P1Wins() {
          d2 = tmp2;
       }
    }
-
-   std::cout << c1 << ":" << c2 << std::endl;
 
    return abs(c2-c1) < 90 ? c1 > c2 : c1 < c2;
 }
