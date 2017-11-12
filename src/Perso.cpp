@@ -18,8 +18,8 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
    this->animations = animations;
     animation = (*animations)[0];
     checkpointAct=0;
-    Teleporteur tp(this);
-    bonus=&tp;
+    auto *tp = new Teleporteur(this);
+    bonus=tp;
 }
 
 //Test collision et changement position dans Moteur
