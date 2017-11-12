@@ -30,7 +30,6 @@ public:
    void scrolling(int x, int y);
 
 
-
 private:
    SDL_Window   * win;
    SDL_Renderer * rdr;
@@ -46,6 +45,9 @@ private:
 
    /* Textures */
    Image background;
+    SDL_Texture *titre;
+
+    SDL_Rect titre_rect;
 };
 
 #endif

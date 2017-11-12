@@ -32,6 +32,17 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             /* creation des images */
             this->background = Image(this->rdr, const_cast<char *>("assets/map.png"), 0, 0);
             this->background.setDimension(WINDOW_WIDTH*3, WINDOW_HEIGHT*3);
+
+            TTF_Font *font = TTF_OpenFont("assets/arial.ttf",16);
+            SDL_Color color = {0,0,0,0};
+            SDL_Surface *t_surface = TTF_RenderText_Solid(font,"Kroforce",color);
+            titre = SDL_CreateTextureFromSurface(rdr,t_surface);
+            SDL_FreeSurface(t_surface);
+
+            titre_rect.x = 200;
+            titre_rect.y = 100;
+            titre_rect.w = 400;
+            titre_rect.h = 150;
          }
       }
    }
@@ -97,6 +108,12 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOIN
 
     scrolling((p1->getX()+p1->getW()/2 + p2->getX()+p2->getW()/2)/2,(p1->getY()+p1->getH()/2 + p2->getY()+p1->getW()/2)/2);
 
+   SDL_Rect tmp_rect;
+   tmp_rect.x = titre_rect.x - map_rect.x + WINDOW_WIDTH/2;
+   tmp_rect.y = titre_rect.y - map_rect.y + WINDOW_HEIGHT/2;
+   tmp_rect.w = titre_rect.w;
+   tmp_rect.h = titre_rect.h;
+   SDL_RenderCopy(rdr,titre, nullptr,&tmp_rect);
    p1->display(rdr,map_rect);
    p2->display(rdr,map_rect);
 
