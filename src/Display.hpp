@@ -21,7 +21,7 @@ public:
 
    bool isInitialized();
 
-   void display(Perso *p1, Perso *p2,Map map);
+   void display(Perso *p1, Perso *p2,Map map, int checkpoints[11][3]);
 
    void scrolling(int x, int y);
 
