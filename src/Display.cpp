@@ -48,11 +48,11 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             titre_rect.w = 400;
             titre_rect.h = 150;
 
-            SDL_Surface *t_surface2 = IMG_Load("assets/fleche.png");
+            SDL_Surface *t_surface2 = IMG_Load("assets/fleche2.png");
             fleche = SDL_CreateTextureFromSurface(rdr,t_surface2);
             SDL_FreeSurface(t_surface);
 
-            fleche_rect.x=350;
+            fleche_rect.x=400;
             fleche_rect.y=370;
             fleche_rect.w=200;
             fleche_rect.h=120;
