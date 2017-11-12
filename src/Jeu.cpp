@@ -52,15 +52,15 @@ void Jeu::init(){
     std::vector<Animation*> animation;
     animation.push_back(new Animation(0,0,512/4,512/4,4,0.1));
 
-    p1= new Perso(spriteSheet,&animation,Body(100,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
-    p2= new Perso(spriteSheet,&animation,Body(110,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
+    p1= new Perso(spriteSheet,&animation,Body(300,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
+    p2= new Perso(spriteSheet,&animation,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
 
     int x;
     std::ifstream file;
     file.open("checkpoints", std::ios::in);
-    for(int i=0; i<11; i++){
+    for(int i=0; i<NB_CHECKPOINTS*2; i++){
         file>>x;
-        checkpoints[i/3][i%3]=x;
+        checkpoints[i/2][i%2]=x;
 
     }
 }

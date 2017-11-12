@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Map.hpp"
 #include "Perso.hpp"
+#include "main.hpp"
 
 Map::Map() {
     initObstacles();
@@ -10,7 +11,7 @@ Map::Map() {
 
 Map::~Map() = default;
 
-void Map::testCollisions(std::vector<Perso*> p, int checkpoints[11][3]) {
+void Map::testCollisions(std::vector<Perso*> p, int checkpoints[NB_CHECKPOINTS][2]) {
     int y;
     for (int i = 0; i < 2; i++) {
         p[i]->setColleMur(false);

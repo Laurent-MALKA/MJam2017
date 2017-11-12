@@ -9,6 +9,11 @@
 #include "Image.hpp"
 #include "Perso.hpp"
 #include "Map.hpp"
+#include "main.hpp"
+
+#define NB_CHECKPOINTS 11
+
+class Map;
 
 class Display {
 public:
@@ -21,7 +26,7 @@ public:
 
    bool isInitialized();
 
-   void display(Perso *p1, Perso *p2,Map map, int checkpoints[11][3]);
+   void display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2]);
 
    void scrolling(int x, int y);
 
@@ -31,7 +36,7 @@ private:
    SDL_Window   * win;
    SDL_Renderer * rdr;
 
-   SDL_Rect rect;
+   SDL_Rect map_rect;
 
    bool isInit;
 

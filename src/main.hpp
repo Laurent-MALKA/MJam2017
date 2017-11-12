@@ -6,4 +6,6 @@
 #include "Inputs.hpp"
 #include "Display.hpp"
 
+#define NB_CHECKPOINTS 11
+
 #endif

@@ -35,10 +35,10 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
          }
       }
    }
-   rect.x = 0;
-   rect.y = 0;
-   rect.w = WINDOW_WIDTH;
-   rect.y = WINDOW_HEIGHT;
+   map_rect.x = 0;
+   map_rect.y = 0;
+   map_rect.w = WINDOW_WIDTH;
+   map_rect.y = WINDOW_HEIGHT;
 }
 
 
@@ -87,11 +87,17 @@ bool Display::isInitialized() {
 }
 
 
-void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[11][3]) {
+void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2]) {
    int c1 = 0, c2 = 0;
    double d1 = Body(checkpoints[0][0],checkpoints[0][1],0,0).distance(*p1);
    double d2 = Body(checkpoints[0][0],checkpoints[0][1],0,0).distance(*p2);
+   SDL_SetRenderDrawColor(rdr,0,0,0,0);
+   SDL_RenderClear(rdr);
+   map.display(rdr,map_rect);
+   SDL_SetRenderDrawColor(rdr,0,0,255,0);
    for (int i = 0; i < 11; ++i) {
+      SDL_Rect c_rect = {checkpoints[i][0] - map_rect.x + WINDOW_WIDTH/2,checkpoints[i][1] - map_rect.y + WINDOW_HEIGHT/2,20,20};
+      SDL_RenderFillRect(rdr,&c_rect);
       Body checkpoint(checkpoints[i][0],checkpoints[i][1],0,0);
       if(checkpoint.distance(*p1) < d1) {
          c1 = i;
@@ -114,11 +120,8 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[11][3]) {
          scrolling(p2->getX(),p2->getY());
       }
    }
-   SDL_SetRenderDrawColor(rdr,0,0,0,0);
-    SDL_RenderClear(rdr);
-   map.display(rdr,rect);
-   p1->display(rdr,rect);
-   p2->display(rdr,rect);
+   p1->display(rdr,map_rect);
+   p2->display(rdr,map_rect);
 
 
    SDL_RenderPresent(this->rdr);
@@ -126,17 +129,17 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[11][3]) {
 
 void Display::scrolling(int x, int y) {
    if(x < WINDOW_WIDTH/2)
-      rect.x = WINDOW_WIDTH/2;
+      map_rect.x = WINDOW_WIDTH/2;
    else if(x > MAP_WIDTH-WINDOW_WIDTH/2)
-      rect.x = MAP_WIDTH-WINDOW_WIDTH/2;
+      map_rect.x = MAP_WIDTH-WINDOW_WIDTH/2;
    else
-      rect.x = x;
+      map_rect.x = x;
    if(y < WINDOW_HEIGHT/2)
-      rect.y = WINDOW_HEIGHT/2;
+      map_rect.y = WINDOW_HEIGHT/2;
    else if(y > MAP_HEIGHT-WINDOW_HEIGHT/2)
-      rect.y = MAP_HEIGHT-WINDOW_HEIGHT/2;
+      map_rect.y = MAP_HEIGHT-WINDOW_HEIGHT/2;
    else
-      rect.y = y;
+      map_rect.y = y;
 }
 
 SDL_Renderer *Display::getRenderer() {
