@@ -33,7 +33,7 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             this->background = Image(this->rdr, const_cast<char *>("assets/map.png"));
             this->background.setDimension(WINDOW_WIDTH*3, WINDOW_HEIGHT*3);
 
-            // this->biere = Image(this->rdr, const_cast<char *>("assets/biere.png"));
+            this->biere = Image(this->rdr, const_cast<char *>("assets/biere.png"));
 
             TTF_Font *font = TTF_OpenFont("assets/arial.ttf",16);
             SDL_Color color = {0,0,0,0};
