@@ -59,6 +59,8 @@ private:
 
    SDL_Texture *titre;
    SDL_Rect titre_rect;
+    SDL_Texture* fleche;
+    SDL_Rect fleche_rect;
 };
 
 #endif

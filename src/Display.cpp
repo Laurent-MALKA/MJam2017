@@ -47,6 +47,15 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             titre_rect.y = 200;
             titre_rect.w = 400;
             titre_rect.h = 150;
+
+            SDL_Surface *t_surface2 = IMG_Load("assets/fleche.png");
+            fleche = SDL_CreateTextureFromSurface(rdr,t_surface2);
+            SDL_FreeSurface(t_surface);
+
+            fleche_rect.x=350;
+            fleche_rect.y=370;
+            fleche_rect.w=200;
+            fleche_rect.h=120;
          }
       }
    }
@@ -129,6 +138,11 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOIN
    tmp_rect.h = titre_rect.h;
    SDL_RenderCopy(rdr,titre, nullptr,&tmp_rect);
 
+   tmp_rect.x = fleche_rect.x - map_rect.x + WINDOW_WIDTH/2;
+   tmp_rect.y = fleche_rect.y - map_rect.y + WINDOW_HEIGHT/2;
+   tmp_rect.w = fleche_rect.w;
+   tmp_rect.h = fleche_rect.h;
+   SDL_RenderCopy(rdr,fleche, nullptr,&tmp_rect);
    for (int i = 0; i < NB_BIERES; ++i) {
       // printf("%d:%d:%d:%d\n", bTab[i].getX(), bTab[i].getY(), bTab[i].getW(), bTab[i].getH());
       bTab[i].inc(-map_rect.x + WINDOW_WIDTH/2, -map_rect.y + WINDOW_HEIGHT/2);
@@ -165,6 +179,6 @@ SDL_Renderer *Display::getRenderer() {
 
 /*
 SDL_Texture *Display::getWormhole() const {
-    return whormhole.ge;
+    return whormhole;
 }
  */
