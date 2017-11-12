@@ -66,9 +66,9 @@ const Touches &Perso::getTouches() const {
 }
 
 void Perso::setAcc_h(float acc_h) {
-    if(acc_h > 0)
+    if(acc_h < 0)
         goesLeft = true;
-    else if(acc_h < 0)
+    else if(acc_h > 0)
         goesLeft = false;
     this->acc_h = acc_h;
 }
@@ -140,7 +140,7 @@ float Perso::getV_v_act() const {
 void Perso::display(SDL_Renderer *rdr,SDL_Rect rect) {
     SDL_Rect dstrect = {getX() - rect.x+WINDOW_WIDTH/2,getY() - rect.y+WINDOW_HEIGHT/2,getW(),getH()};
     SDL_Rect srcrect = animation->getRect();
-    SDL_RendererFlip flip = (!goesLeft) ? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE;
+    SDL_RendererFlip flip = (goesLeft) ? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE;
     SDL_RenderCopyEx(rdr,spriteSheet,&srcrect,&dstrect,0, nullptr,flip);
 }
 
