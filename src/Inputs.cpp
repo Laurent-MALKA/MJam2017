@@ -87,7 +87,7 @@ void Inputs::analyseInputs(Perso* p){
     if(isJustPressed(p->getTouches().getT_bonus()) && p->hasBonus()){
         p->lancerBonus();
     }
-    if(isJustPressed(p->getTouches().getT_saut()) && p->isColleMur()){
+    if(isJustPressed(p->getTouches().getT_saut()) && p->isColleMur() && p->isEnLAir()){
         int x=-10;
         if(p->isGoingLeft()){
             x=10;
