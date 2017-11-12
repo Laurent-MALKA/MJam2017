@@ -13,17 +13,20 @@ class Image {
 public:
    Image();
    Image(SDL_Renderer * rdr, char * str, int x, int y);
+   Image(SDL_Renderer * rdr, char * str);
    ~Image();
 
    void setPosition(int x, int y);
    void setX(int x);
    void setY(int y);
 
+   SDL_Texture * getTexture();
+
    void setDimension(int w, int h);
 
    void display(SDL_Rect *rect);
 
-   
+
 
 private:
    SDL_Renderer * rdr;

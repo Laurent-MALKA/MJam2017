@@ -30,8 +30,10 @@ Display::Display(int sdlFlags, int imgFlags, char * winName):
             this->isInit = true;
 
             /* creation des images */
-            this->background = Image(this->rdr, const_cast<char *>("assets/map.png"), 0, 0);
+            this->background = Image(this->rdr, const_cast<char *>("assets/map.png"));
             this->background.setDimension(WINDOW_WIDTH*3, WINDOW_HEIGHT*3);
+
+            // this->biere = Image(this->rdr, const_cast<char *>("assets/biere.png"));
 
             TTF_Font *font = TTF_OpenFont("assets/arial.ttf",16);
             SDL_Color color = {0,0,0,0};
@@ -95,6 +97,17 @@ bool Display::isInitialized() {
    this->isInit &= this->win != nullptr && this->rdr != nullptr;
 
    return this->isInit;
+}
+
+
+void Display::displayBiere(Biere b) {
+   SDL_Rect rect;
+   rect.x = b.getX();
+   rect.y = b.getY();
+   rect.w = b.getW();
+   rect.h = b.getH();
+
+   SDL_RenderCopy(this->rdr, this->biere.getTexture(), NULL, &rect);
 }
 
 

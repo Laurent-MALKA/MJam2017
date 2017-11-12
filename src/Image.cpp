@@ -17,9 +17,20 @@ Image::Image(SDL_Renderer * rdr, char * str, int x, int y):
    this->rct.h = s->h;
 
    SDL_FreeSurface(s);
+
+   if (!this->img) {
+      fprintf(stderr, "erreur ouverture de %s\n", str);
+   }
 }
 
 Image::~Image() = default;
+
+
+Image::Image(SDL_Renderer * rdr, char * str):
+   Image(rdr, str, 0, 0) {
+
+}
+
 
 void Image::setPosition(int x, int y) {
    this->setX(x);
@@ -37,6 +48,10 @@ void Image::setY(int y) {
 void Image::setDimension(int w, int h) {
    this->rct.w = w;
    this->rct.h = h;
+}
+
+SDL_Texture * Image::getTexture() {
+   return this->img;
 }
 
 void Image::display(SDL_Rect *rect) {

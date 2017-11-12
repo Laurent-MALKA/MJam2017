@@ -11,6 +11,7 @@
 #include "Perso.hpp"
 #include "Map.hpp"
 #include "main.hpp"
+#include "Biere.hpp"
 
 class Map;
 
@@ -24,6 +25,8 @@ public:
    bool initSDL(int sdlFlags, int imgFlags);
 
    bool isInitialized();
+
+   void displayBiere(Biere b);
 
    void display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2]);
 
@@ -45,9 +48,10 @@ private:
 
    /* Textures */
    Image background;
-    SDL_Texture *titre;
+   Image biere;
 
-    SDL_Rect titre_rect;
+   SDL_Texture *titre;
+   SDL_Rect titre_rect;
 };
 
 #endif

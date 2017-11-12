@@ -26,8 +26,9 @@ CFLAGS=-Wall -Wextra -std=c++11 -Wreorder -g
 LDFLAGS=-lSDL2 -lSDL2_image -lSDL2_ttf
 INCLUDES=
 
-OBJ=Animation.o BeerBar.o Body.o Bonus.o Cola.o Display.o Grappin.o Inputs.o\
-    Jeu.o main.o Map.o Moteur.o Obstacle.o Perso.o Touches.o Image.o Teleporteur.o
+OBJ=Animation.o BeerBar.o Biere.o Body.o Bonus.o Cola.o Display.o Grappin.o\
+    Image.o Inputs.o Jeu.o main.o Map.o Moteur.o Obstacle.o Perso.o Touches.o\
+	 Teleporteur.o
 EXE=mJam
 
 
@@ -52,11 +53,13 @@ $(EXEC): $(BLD_OBJ)
 
 Animation.o: Animation.cpp Animation.hpp
 BeerBar.o: BeerBar.cpp BeerBar.hpp Body.hpp
+Biere.o: Biere.cpp Biere.hpp
 Body.o: Body.cpp Body.hpp
 Bonus.o: Bonus.cpp Bonus.hpp Body.hpp Perso.hpp
 Cola.o: Cola.cpp Cola.hpp Bonus.hpp
-Display.o: Display.cpp Display.hpp Image.hpp Perso.hpp Map.hpp
+Display.o: Display.cpp Display.hpp Image.hpp Perso.hpp Map.hpp Biere.hpp
 Grappin.o: Grappin.cpp Grappin.hpp Body.hpp Perso.hpp
+Image.o: Image.cpp Image.hpp
 Inputs.o: Inputs.cpp Inputs.hpp Perso.hpp
 Jeu.o: Jeu.cpp Jeu.hpp Inputs.hpp Display.hpp Moteur.hpp Map.hpp
 main.o: main.cpp *.hpp
