@@ -35,6 +35,7 @@ void Map::testCollisions(std::vector<Perso*> p, int checkpoints[NB_CHECKPOINTS][
                     if (obstacle.getX() < p[i]->getX()) {
                         if (obstacle.getX()+obstacle.getW() - p[i]->getX() > obstacle.getY()+obstacle.getH() - p[i]->getY()) {
                             p[i]->setY(obstacle.getY() + obstacle.getH()+5);
+                            p[i]->setV_v_act(0);
                         } else {
                             p[i]->setX(obstacle.getX() + obstacle.getW());
                             p[i]->setColleMur(true);
