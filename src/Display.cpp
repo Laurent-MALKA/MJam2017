@@ -99,8 +99,6 @@ bool Display::isInitialized() {
 
 
 void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2]) {
-   double d1 = Body(checkpoints[0][0],checkpoints[0][1],0,0).distance(*p1);
-   double d2 = Body(checkpoints[0][0],checkpoints[0][1],0,0).distance(*p2);
    SDL_SetRenderDrawColor(rdr,50,50,50,0);
    SDL_RenderClear(rdr);
    map.display(rdr,map_rect);
