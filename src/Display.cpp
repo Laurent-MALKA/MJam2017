@@ -88,53 +88,12 @@ bool Display::isInitialized() {
 
 
 void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2]) {
-   int c1 = 0, c2 = 0;
    double d1 = Body(checkpoints[0][0],checkpoints[0][1],0,0).distance(*p1);
    double d2 = Body(checkpoints[0][0],checkpoints[0][1],0,0).distance(*p2);
    SDL_SetRenderDrawColor(rdr,50,50,50,0);
    SDL_RenderClear(rdr);
    map.display(rdr,map_rect);
    SDL_SetRenderDrawColor(rdr,0,0,255,0);
-   for (int i = 0; i < NB_CHECKPOINTS; ++i) {
-      SDL_Rect c_rect = {checkpoints[i][0] - map_rect.x + WINDOW_WIDTH/2,checkpoints[i][1] - map_rect.y + WINDOW_HEIGHT/2,20,20};
-      SDL_RenderFillRect(rdr,&c_rect);
-      Body checkpoint(checkpoints[i][0],checkpoints[i][1],0,0);
-      if(checkpoint.distance(*p1) < d1) {
-         c1 = i;
-      }
-
-      if(checkpoint.distance(*p2) < d2) {
-         c2 = i;
-      }
-   }
-
-/*
-   if (abs(c1-c2) < 20) {
-      if (c1 > c2) {
-         scrolling(p1->getX(),p1->getY());
-      } else if (c1 < c2){
-         scrolling(p2->getX(),p2->getY());
-      } else {
-         if (d1 < d2) {
-            scrolling(p1->getX(),p1->getY());
-         } else {
-            scrolling(p2->getX(),p2->getY());
-         }
-      }
-   } else {
-      if (c1 > c2) {
-         scrolling(p2->getX(),p2->getY());
-      } else if (c1 < c2){
-         scrolling(p1->getX(),p1->getY());
-      } else {
-         if (d1 < d2) {
-            scrolling(p2->getX(),p2->getY());
-         } else {
-            scrolling(p1->getX(),p1->getY());
-         }
-      }
-   }
-   */
 
     scrolling((p1->getX()+p1->getW()/2 + p2->getX()+p2->getW()/2)/2,(p1->getY()+p1->getH()/2 + p2->getY()+p1->getW()/2)/2);
 

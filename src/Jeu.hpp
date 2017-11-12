@@ -1,6 +1,9 @@
 #ifndef MJAM2017_JEU_HPP
 #define MJAM2017_JEU_HPP
 
+#include <cstdlib>
+#include <ostream>
+
 #include "Inputs.hpp"
 #include "Moteur.hpp"
 #include "Display.hpp"
@@ -11,6 +14,9 @@ public:
     Jeu();
     ~Jeu();
     void gameloop();
+
+    bool ends();
+    bool P1Wins();
 
 private:
     void init();

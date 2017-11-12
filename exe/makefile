@@ -18,7 +18,7 @@ BLD_REP=../build/
 SRC_REP=../src/
 EXE_REP=./
 
-CFLAGS=-Wall -Wextra -std=c++11 -Wreorder
+CFLAGS=-Wall -Wextra -std=c++11 -Wreorder -g
       #-MMD -O2
       #-ansi -pedantic
       #-Wchar-subscripts -Wdouble-promotion

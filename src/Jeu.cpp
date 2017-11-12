@@ -38,6 +38,10 @@ void Jeu::gameloop() {
             pP.push_back(p2);
             map.testCollisions(pP,checkpoints);
 
+            if (ends()) {
+               std::cout << (P1Wins() ? "P1 Wins" : "P2 Wins") << std::endl;
+            }
+
             display.display(p1,p2,map,checkpoints);
             SDL_Delay(16);
             fin = inputs.exit();
@@ -70,11 +74,37 @@ void Jeu::init(){
             checkpoints[i / 2][i % 2] = x*3;
         }
     } else {
-        std::cerr << "NTM" << std::endl;
+        std::cerr << "NTM:non" << std::endl;
     }
 }
 
 Jeu::~Jeu() {
     delete p1;
     //delete p2;
+}
+
+bool Jeu::ends() {
+   return abs(p1->getX() - p2->getX()) > WINDOW_WIDTH
+   || abs(p1->getY() - p1->getY()) > WINDOW_HEIGHT;
+}
+
+bool Jeu::P1Wins() {
+   int c1 = 0;
+   int c2 = 0;
+   int d1 = WINDOW_WIDTH;
+   int d2 = WINDOW_WIDTH;
+
+   for (int i = 0; i < NB_CHECKPOINTS; ++i) {
+      Body checkpoint(checkpoints[i][0],checkpoints[i][1],0,0);
+      if (checkpoint.distance(*p1) < d1) {
+         c1 = i;
+      }
+      if (checkpoint.distance(*p2) < d2) {
+         c2 = i;
+      }
+   }
+
+   std::cout << c1 << ":" << c2 << std::endl;
+
+   return c1 < c2 && abs(c2-c1) < 50;
 }
