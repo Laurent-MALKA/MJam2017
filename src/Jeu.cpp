@@ -41,7 +41,19 @@ void Jeu::gameloop() {
 ////////////////////////////////////////////////////////////////////////////////
 
             if (ends()) {
-               std::cout << (P1Wins() ? "P1 Wins" : "P2 Wins") << std::endl;
+                TTF_Font *font = TTF_OpenFont("assets/arial.ttf",50);
+                SDL_Surface *vainqueur_surf = TTF_RenderText_Solid(font,(P1Wins() ? "P1 Wins" : "P2 Wins"),{0,0,0,0});
+                SDL_Texture *vainqueur_text = SDL_CreateTextureFromSurface(display.getRenderer(),vainqueur_surf);
+                SDL_FreeSurface(vainqueur_surf);
+                SDL_Rect vainqueur_rect;
+                vainqueur_rect.w = WINDOW_WIDTH*3/4;
+                vainqueur_rect.h = 150;
+                vainqueur_rect.x = WINDOW_WIDTH/2 - vainqueur_rect.w/2;
+                vainqueur_rect.y = WINDOW_HEIGHT/2 - vainqueur_rect.h/2;
+               SDL_RenderCopy(display.getRenderer(),vainqueur_text, nullptr,&vainqueur_rect);
+                SDL_RenderPresent(display.getRenderer());
+                SDL_Delay(1000);
+                init();
             }
 
 ////////////////////////////////////////////////////////////////////////////////
