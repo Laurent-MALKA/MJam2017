@@ -10,7 +10,7 @@ class Perso;
 class Bonus : public Body {
 public:
     explicit Bonus(Perso* monPerso);
-    ~Bonus();
+    virtual ~Bonus();
     virtual void effet() = 0;
     virtual void bouger()=0;
     virtual void mort(Perso* p);

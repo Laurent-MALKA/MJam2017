@@ -87,9 +87,34 @@ bool Display::isInitialized() {
 }
 
 
-void Display::display(Perso *p1, Perso *p2,Map map) {
-   scrolling(p1->getX(),p1->getY());
-    SDL_SetRenderDrawColor(rdr,0,0,0,0);
+void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[11][3]) {
+   int c1 = 0, c2 = 0;
+   double d1 = Body(checkpoints[0][0],checkpoints[0][1],0,0).distance(*p1);
+   double d2 = Body(checkpoints[0][0],checkpoints[0][1],0,0).distance(*p2);
+   for (int i = 0; i < 11; ++i) {
+      Body checkpoint(checkpoints[i][0],checkpoints[i][1],0,0);
+      if(checkpoint.distance(*p1) < d1) {
+         c1 = i;
+      }
+
+      if(checkpoint.distance(*p2) < d2) {
+         c2 = i;
+      }
+   }
+
+
+   if (c1 > c2) {
+      scrolling(p1->getX(),p1->getY());
+   } else if (c1 < c2){
+      scrolling(p2->getX(),p2->getY());
+   } else {
+      if (d1 < d2) {
+         scrolling(p1->getX(),p1->getY());
+      } else if (d1 < d2){
+         scrolling(p2->getX(),p2->getY());
+      }
+   }
+   SDL_SetRenderDrawColor(rdr,0,0,0,0);
     SDL_RenderClear(rdr);
    map.display(rdr,rect);
    p1->display(rdr,rect);
