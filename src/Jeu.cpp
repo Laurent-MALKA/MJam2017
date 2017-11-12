@@ -15,6 +15,46 @@ void Jeu::gameloop() {
 
     while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
         fin = false;
+        /*
+        TTF_Font *font = TTF_OpenFont("assets/arial.ttf",50);
+        SDL_Surface *rebours_surf = TTF_RenderText_Solid(font,"3",{255,255,255,0});
+        SDL_Texture *rebours_text = SDL_CreateTextureFromSurface(display.getRenderer(),rebours_surf);
+        SDL_FreeSurface(rebours_surf);
+        SDL_Rect rebours_rect;
+        rebours_rect.w = 150;
+        rebours_rect.h = 150;
+        rebours_rect.x = WINDOW_WIDTH/2 - rebours_rect.w/2;
+        rebours_rect.y = WINDOW_HEIGHT/2 - rebours_rect.h/2;
+
+        SDL_SetRenderDrawColor(display.getRenderer(),0,0,0,0);
+        SDL_RenderClear(display.getRenderer());
+        SDL_RenderCopy(display.getRenderer(),rebours_text, nullptr,&rebours_rect);
+        SDL_RenderPresent(display.getRenderer());
+        SDL_Delay(1000);
+        SDL_DestroyTexture(rebours_text);
+
+        SDL_SetRenderDrawColor(display.getRenderer(),0,0,0,0);
+        SDL_RenderClear(display.getRenderer());
+        rebours_surf = TTF_RenderText_Solid(font,"2",{255,255,255,0});
+        rebours_text = SDL_CreateTextureFromSurface(display.getRenderer(),rebours_surf);
+        SDL_FreeSurface(rebours_surf);
+        SDL_RenderCopy(display.getRenderer(),rebours_text, nullptr,&rebours_rect);
+        SDL_RenderPresent(display.getRenderer());
+        SDL_Delay(1000);
+        SDL_DestroyTexture(rebours_text);
+
+        SDL_SetRenderDrawColor(display.getRenderer(),0,0,0,0);
+        SDL_RenderClear(display.getRenderer());
+        rebours_surf = TTF_RenderText_Solid(font,"1",{255,255,255,0});
+        rebours_text = SDL_CreateTextureFromSurface(display.getRenderer(),rebours_surf);
+        SDL_FreeSurface(rebours_surf);
+        SDL_RenderCopy(display.getRenderer(),rebours_text, nullptr,&rebours_rect);
+        SDL_RenderPresent(display.getRenderer());
+        SDL_Delay(1000);
+        SDL_DestroyTexture(rebours_text);
+        */
+
+
         while (inputs.isStillReleased(SDL_SCANCODE_ESCAPE) && !fin) {
             inputs.update();
             p1->update();

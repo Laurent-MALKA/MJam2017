@@ -6,7 +6,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
    v_h_act(0),
    acc_h(0),
    v_v_act(0),
-   enLAir(false), goesLeft(true), colleMur(false),
+   enLAir(false), goesLeft(false), colleMur(false),
    cptRebond(0),
    nbBiere(0), bonus(), touches(touches), grappin(this,false),
    beerBar(b_x,b_y)
@@ -121,7 +121,7 @@ void Perso::update() {
     if(v_h_act)
         animation->update();
     beerBar.update();
-    nbBiere = beerBar.getLevel();
+    nbBiere = (unsigned)beerBar.getLevel();
 }
 
 void Perso::grabBeer() {
