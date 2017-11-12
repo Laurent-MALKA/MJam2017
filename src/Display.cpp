@@ -110,7 +110,7 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[11][3]) {
    } else {
       if (d1 < d2) {
          scrolling(p1->getX(),p1->getY());
-      } else if (d1 < d2){
+      } else{
          scrolling(p2->getX(),p2->getY());
       }
    }
