@@ -3,7 +3,7 @@
 #include "Jeu.hpp"
 #include "Teleporteur.hpp"
 
-Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Hello World !") {
+Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Kroforce") {
 
     init();
 
