@@ -39,12 +39,15 @@ void Jeu::gameloop() {
             map.testCollisions(pP,checkpoints);
 
             for (int i = 0; i < NB_BIERES; ++i) {
-               if (p1->collides(biereTab[i])) {
+               if (p1->collides(biereTab[i]) && biereTab[i].isActive()) {
                   p1->grabBeer();
+                  biereTab[i].desactiver();
                }
-               if (p2->collides(biereTab[i])) {
+               if (p2->collides(biereTab[i]) && biereTab[i].isActive()) {
                   p2->grabBeer();
+                  biereTab[i].desactiver();
                }
+               biereTab[i].compter();
             }
 
 ////////////////////////////////////////////////////////////////////////////////

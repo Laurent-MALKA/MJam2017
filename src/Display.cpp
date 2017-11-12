@@ -107,6 +107,7 @@ void Display::displayBiere(Biere b) {
    rect.w = b.getW();
    rect.h = b.getH();
 
+   if (b.isActive())
    SDL_RenderCopy(this->rdr, this->biere.getTexture(), NULL, &rect);
 }
 

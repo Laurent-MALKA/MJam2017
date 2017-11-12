@@ -5,13 +5,25 @@
 
 #include "Body.hpp"
 
-#define BIERE_WIDTH  50
-#define BIERE_HEIGHT 50
+#define BIERE_WIDTH  22
+#define BIERE_HEIGHT 49
+
+#define BIERE_TIME  100
 
 class Biere: public Body {
 public:
    Biere(int x, int y);
    Biere();
+
+   void activer();
+   void desactiver();
+   bool isActive();
+
+   void compter();
+
+private:
+   bool isA = true;
+   int time = 0;
 };
 
 #endif
