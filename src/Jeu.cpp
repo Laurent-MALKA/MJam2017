@@ -1,4 +1,5 @@
 #include <fstream>
+#include <iostream>
 #include "Jeu.hpp"
 
 Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Hello World !") {
@@ -57,11 +58,14 @@ void Jeu::init(){
 
     int x;
     std::ifstream file;
-    file.open("checkpoints", std::ios::in);
-    for(int i=0; i<NB_CHECKPOINTS*2; i++){
-        file>>x;
-        checkpoints[i/2][i%2]=x;
-
+    file.open("assets/checkpoints.txt", std::ios::in);
+    if(file.is_open()) {
+        for (int i = 0; i < NB_CHECKPOINTS * 2; i++) {
+            file >> x;
+            checkpoints[i / 2][i % 2] = x*3;
+        }
+    } else {
+        std::cerr << "NTM" << std::endl;
     }
 }
 

@@ -95,7 +95,7 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOIN
    SDL_RenderClear(rdr);
    map.display(rdr,map_rect);
    SDL_SetRenderDrawColor(rdr,0,0,255,0);
-   for (int i = 0; i < 11; ++i) {
+   for (int i = 0; i < NB_CHECKPOINTS; ++i) {
       SDL_Rect c_rect = {checkpoints[i][0] - map_rect.x + WINDOW_WIDTH/2,checkpoints[i][1] - map_rect.y + WINDOW_HEIGHT/2,20,20};
       SDL_RenderFillRect(rdr,&c_rect);
       Body checkpoint(checkpoints[i][0],checkpoints[i][1],0,0);
