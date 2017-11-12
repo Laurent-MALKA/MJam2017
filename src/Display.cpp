@@ -109,17 +109,32 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOIN
    }
 
 
-   if (c1 > c2) {
-      scrolling(p1->getX(),p1->getY());
-   } else if (c1 < c2){
-      scrolling(p2->getX(),p2->getY());
-   } else {
-      if (d1 < d2) {
+   if (abs(c1-c2) < 20) {
+      if (c1 > c2) {
          scrolling(p1->getX(),p1->getY());
-      } else{
+      } else if (c1 < c2){
          scrolling(p2->getX(),p2->getY());
+      } else {
+         if (d1 < d2) {
+            scrolling(p1->getX(),p1->getY());
+         } else {
+            scrolling(p2->getX(),p2->getY());
+         }
+      }
+   } else {
+      if (c1 > c2) {
+         scrolling(p2->getX(),p2->getY());
+      } else if (c1 < c2){
+         scrolling(p1->getX(),p1->getY());
+      } else {
+         if (d1 < d2) {
+            scrolling(p2->getX(),p2->getY());
+         } else {
+            scrolling(p1->getX(),p1->getY());
+         }
       }
    }
+
    p1->display(rdr,map_rect);
    p2->display(rdr,map_rect);
 

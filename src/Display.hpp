@@ -2,6 +2,7 @@
 #define __DISPLAY_HPP__
 
 #include <cstdio>
+#include <cstdlib>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
