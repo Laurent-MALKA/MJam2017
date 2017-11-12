@@ -83,6 +83,7 @@ public:
     bool hasBonus();
 
     void update();
+    void grabBeer();
     void display(SDL_Renderer *rdr, SDL_Rect rect);
     void saut();
     void lancerGrappin();

@@ -8,6 +8,7 @@
 #include "Moteur.hpp"
 #include "Display.hpp"
 #include "Map.hpp"
+#include "Biere.hpp"
 
 class Jeu {
 public:
@@ -27,6 +28,7 @@ private:
     Perso* p1;
     Perso* p2;
     int checkpoints[NB_CHECKPOINTS][2];
+   //  Biere biereTab[];
 
     //std::vector<Body> bodies;
 };

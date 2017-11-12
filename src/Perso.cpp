@@ -123,6 +123,11 @@ void Perso::update() {
     nbBiere = beerBar.getLevel();
 }
 
+void Perso::grabBeer() {
+   this->beerBar.grabBeer();
+}
+
+
 void Perso::setAnimation(int i) {
     animation = (*animations)[i];
     animation->reset();
