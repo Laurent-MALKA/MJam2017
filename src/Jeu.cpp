@@ -1,7 +1,7 @@
 #include <fstream>
 #include "Jeu.hpp"
 
-Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Hello World!") {
+Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"C'est quoi le nom ?") {
 
     init();
 
@@ -37,7 +37,6 @@ void Jeu::gameloop() {
             pP.push_back(p2);
             map.testCollisions(pP,checkpoints);
 
-            display.display(p1,p2,map,checkpoints);
             SDL_Delay(16);
             fin = inputs.exit();
         }
