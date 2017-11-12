@@ -10,6 +10,7 @@
 #include "Map.hpp"
 #include "Biere.hpp"
 
+
 class Jeu {
 public:
     Jeu();
@@ -28,7 +29,7 @@ private:
     Perso* p1;
     Perso* p2;
     int checkpoints[NB_CHECKPOINTS][2];
-   //  Biere biereTab[];
+    Biere biereTab[NB_BIERES];
 
     //std::vector<Body> bodies;
 };

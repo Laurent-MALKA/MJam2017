@@ -13,6 +13,8 @@
 #include "main.hpp"
 #include "Biere.hpp"
 
+#define NB_BIERES 10
+
 class Map;
 
 class Display {
@@ -28,7 +30,7 @@ public:
 
    void displayBiere(Biere b);
 
-   void display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2]);
+   void display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2], Biere bTab[NB_BIERES]);
 
    void scrolling(int x, int y);
 

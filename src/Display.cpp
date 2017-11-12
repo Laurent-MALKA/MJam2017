@@ -111,7 +111,7 @@ void Display::displayBiere(Biere b) {
 }
 
 
-void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2]) {
+void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOINTS][2], Biere bTab[NB_BIERES]) {
    SDL_SetRenderDrawColor(rdr,50,50,50,0);
    SDL_RenderClear(rdr);
    map.display(rdr,map_rect);
@@ -125,8 +125,17 @@ void Display::display(Perso *p1, Perso *p2,Map map, int checkpoints[NB_CHECKPOIN
    tmp_rect.w = titre_rect.w;
    tmp_rect.h = titre_rect.h;
    SDL_RenderCopy(rdr,titre, nullptr,&tmp_rect);
+
+   for (int i = 0; i < NB_BIERES; ++i) {
+      // printf("%d:%d:%d:%d\n", bTab[i].getX(), bTab[i].getY(), bTab[i].getW(), bTab[i].getH());
+      bTab[i].inc(-map_rect.x + WINDOW_WIDTH/2, -map_rect.y + WINDOW_HEIGHT/2);
+      displayBiere(bTab[i]);
+      bTab[i].dec(-map_rect.x + WINDOW_WIDTH/2, -map_rect.y + WINDOW_HEIGHT/2);
+   }
+
    p1->display(rdr,map_rect);
    p2->display(rdr,map_rect);
+
 
 
    SDL_RenderPresent(this->rdr);

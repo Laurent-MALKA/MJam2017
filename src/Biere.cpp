@@ -6,5 +6,5 @@ Biere::Biere(int x, int y):
 
 
 Biere::Biere() {
-   fprintf(stderr, "c'est pas ce contructeur qu'il faut utiliser !\n");
+   fprintf(stderr, "Et une Biere de construite !\n");
 }

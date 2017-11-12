@@ -38,11 +38,15 @@ void Jeu::gameloop() {
             pP.push_back(p2);
             map.testCollisions(pP,checkpoints);
 
+////////////////////////////////////////////////////////////////////////////////
+
             if (ends()) {
                std::cout << (P1Wins() ? "P1 Wins" : "P2 Wins") << std::endl;
             }
 
-            display.display(p1,p2,map,checkpoints);
+////////////////////////////////////////////////////////////////////////////////
+
+            display.display(p1,p2,map,checkpoints, biereTab);
             SDL_Delay(16);
             fin = inputs.exit();
         }
@@ -65,13 +69,28 @@ void Jeu::init(){
     p1= new Perso(spriteSheet,&animation,Body(300,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E),0,0);
     p2= new Perso(spriteSheet2,&animation,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P),WINDOW_WIDTH-100,0);
 
-    int x;
+    int x, y;
     std::ifstream file;
     file.open("assets/checkpoints.txt", std::ios::in);
     if(file.is_open()) {
         for (int i = 0; i < NB_CHECKPOINTS * 2; i++) {
             file >> x;
             checkpoints[i / 2][i % 2] = x*3;
+        }
+    } else {
+        std::cerr << "NTM:non" << std::endl;
+    }
+
+    file.close();
+
+    file.open("assets/biereTab.txt", std::ios::in);
+    std::cout << x << ":" << y << std::endl;
+    if(file.is_open()) {
+        for (int i = 0; i < NB_BIERES; i++) {
+            file >> x;
+            file >> y;
+            std::cout << x << ":" << y << std::endl;
+            biereTab[i] = Biere(x*3, y*3);
         }
     } else {
         std::cerr << "NTM:non" << std::endl;
