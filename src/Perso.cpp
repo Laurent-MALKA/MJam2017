@@ -1,14 +1,17 @@
 #include <fstream>
 #include "Perso.hpp"
 
-Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body body, Touches touches):
+Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body body, Touches touches,int b_x, int b_y):
    Body(body), v_h_max(10.0),
    v_h_act(0),
    acc_h(0),
    v_v_act(0),
    enLAir(false), goesLeft(true), colleMur(false),
    cptRebond(0),
-   nbBiere(0), bonus(), touches(touches), grappin(this,false) {
+   nbBiere(0), bonus(), touches(touches), grappin(this,false),
+   beerBar(b_x,b_y)
+
+{
    this->spriteSheet = spriteSheet;
    this->animations = animations;
     animation = (*animations)[0];
@@ -17,7 +20,7 @@ Perso::Perso(SDL_Texture * spriteSheet,std::vector<Animation*> *animations, Body
 
 //Test collision et changement position dans Moteur
 void Perso::bouger(){
-    float vitesse=acc_h+v_h_act+nbBiere/2;
+    float vitesse=acc_h+v_h_act*(1+nbBiere/100);
 
     /*Décélération*/
     if(vitesse<0){
@@ -116,6 +119,8 @@ void Perso::lancerGrappin() {
 
 void Perso::update() {
     animation->update();
+    beerBar.update();
+    nbBiere = beerBar.getLevel();
 }
 
 void Perso::setAnimation(int i) {
@@ -151,6 +156,7 @@ void Perso::display(SDL_Renderer *rdr,SDL_Rect rect) {
     SDL_Rect srcrect = animation->getRect();
     SDL_RendererFlip flip = (goesLeft) ? SDL_FLIP_HORIZONTAL:SDL_FLIP_NONE;
     SDL_RenderCopyEx(rdr,spriteSheet,&srcrect,&dstrect,0, nullptr,flip);
+    beerBar.display(rdr);
 }
 
 Bonus* Perso::getBonus() const {

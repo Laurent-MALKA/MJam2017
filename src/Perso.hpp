@@ -7,6 +7,7 @@
 #include "Bonus.hpp"
 #include "Body.hpp"
 #include "Animation.hpp"
+#include "BeerBar.hpp"
 
 #define GRAP_WIDTH     10
 #define GRAP_HEIGHT    10
@@ -56,7 +57,7 @@ class Perso: public Body {
 
 public:
     Perso(): Body(0,0,0,0), touches(SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES,SDL_NUM_SCANCODES){}
-    Perso(SDL_Texture *spriteSheet,std::vector<Animation*> *animations,Body body, Touches touches);
+    Perso(SDL_Texture *spriteSheet,std::vector<Animation*> *animations,Body body, Touches touches,int b_x, int b_y);
     ~Perso();
 
     void bouger();
@@ -111,7 +112,7 @@ private:
 //    Body body;
     Grappin grappin;
     int checkpointAct{};
-
+    BeerBar beerBar;
 };
 
 

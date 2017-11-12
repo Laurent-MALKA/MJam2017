@@ -1,7 +1,7 @@
 #include <fstream>
 #include "Jeu.hpp"
 
-Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"C'est quoi le nom ?") {
+Jeu::Jeu():inputs(), moteur(), display(SDL_INIT_VIDEO,IMG_INIT_PNG,(char *)"Hello World !") {
 
     init();
 
@@ -37,6 +37,7 @@ void Jeu::gameloop() {
             pP.push_back(p2);
             map.testCollisions(pP,checkpoints);
 
+            display.display(p1,p2,map,checkpoints);
             SDL_Delay(16);
             fin = inputs.exit();
         }
@@ -51,8 +52,8 @@ void Jeu::init(){
     std::vector<Animation*> animation;
     animation.push_back(new Animation(0,0,512/4,512/4,4,0.1));
 
-    p1= new Perso(spriteSheet,&animation,Body(300,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E));
-    p2= new Perso(spriteSheet,&animation,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P));
+    p1= new Perso(spriteSheet,&animation,Body(300,300,75,75),Touches(SDL_SCANCODE_A,SDL_SCANCODE_D,SDL_SCANCODE_W,SDL_SCANCODE_Q,SDL_SCANCODE_E),0,0);
+    p2= new Perso(spriteSheet,&animation,Body(300,315,75,75),Touches(SDL_SCANCODE_K,SDL_SCANCODE_SEMICOLON,SDL_SCANCODE_O,SDL_SCANCODE_I,SDL_SCANCODE_P),WINDOW_WIDTH-100,0);
 
     int x;
     std::ifstream file;

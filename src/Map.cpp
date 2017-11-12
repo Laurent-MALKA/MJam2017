@@ -108,7 +108,7 @@ bool Map::estEnColision(Body p, Body obstacle){
 }
 
 void Map::display(SDL_Renderer *rdr,SDL_Rect map_rect) {
-    SDL_SetRenderDrawColor(rdr,255,0,0,0);
+    SDL_SetRenderDrawColor(rdr,0,96,15,0);
     for (auto obstacle : obstacles) {
         SDL_Rect rect_d = {obstacle.getX()-map_rect.x+WINDOW_WIDTH/2,obstacle.getY()-map_rect.y+WINDOW_HEIGHT/2,obstacle.getW(),obstacle.getH()};
         SDL_RenderFillRect(rdr,&rect_d);
